@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" role="img" aria-label="Transformer bushing product line">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#edf3f7"/>
+      <stop offset="1" stop-color="#cbd8e2"/>
+    </linearGradient>
+    <linearGradient id="porcelain" x1="0" x2="1">
+      <stop offset="0" stop-color="#adc7d0"/>
+      <stop offset="0.5" stop-color="#fff"/>
+      <stop offset="1" stop-color="#8ba2ac"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" x2="1">
+      <stop offset="0" stop-color="#607281"/>
+      <stop offset="0.5" stop-color="#e8eef4"/>
+      <stop offset="1" stop-color="#546575"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="420" fill="url(#bg)"/>
+  <path d="M0 320c120-42 228-35 332-8 116 30 224 36 368-8v116H0z" fill="#b9c8d5"/>
+  <g transform="translate(126 50)">
+    <rect x="66" y="0" width="34" height="74" rx="12" fill="#b76837"/>
+    <path d="M56 70h54l34 230H22z" fill="url(#porcelain)"/>
+    <g fill="#eaf7fa" stroke="#8299a3" stroke-width="4">
+      <ellipse cx="83" cy="108" rx="80" ry="18"/>
+      <ellipse cx="83" cy="154" rx="90" ry="19"/>
+      <ellipse cx="83" cy="203" rx="100" ry="21"/>
+      <ellipse cx="83" cy="254" rx="110" ry="22"/>
+    </g>
+    <rect x="17" y="288" width="132" height="42" rx="10" fill="url(#metal)"/>
+  </g>
+  <g transform="translate(342 20)">
+    <rect x="76" y="0" width="40" height="88" rx="14" fill="#b76837"/>
+    <path d="M62 82h68l42 274H20z" fill="url(#porcelain)"/>
+    <g fill="#f3fbfd" stroke="#8299a3" stroke-width="4">
+      <ellipse cx="96" cy="122" rx="98" ry="20"/>
+      <ellipse cx="96" cy="174" rx="108" ry="22"/>
+      <ellipse cx="96" cy="228" rx="118" ry="24"/>
+      <ellipse cx="96" cy="284" rx="128" ry="25"/>
+    </g>
+    <rect x="20" y="340" width="152" height="46" rx="10" fill="url(#metal)"/>
+  </g>
+  <path d="M50 358h590" stroke="#6c7c8b" stroke-width="10" stroke-linecap="round"/>
+</svg>

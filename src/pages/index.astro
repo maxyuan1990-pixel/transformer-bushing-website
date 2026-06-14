@@ -1,0 +1,263 @@
+---
+import "../styles/global.css";
+
+const productLines = [
+  {
+    title: "Porcelain Transformer Bushings",
+    detail: "Weatherproof glazed porcelain bodies for distribution and power transformers.",
+    specs: "Up to 72.5 kV | 250 A - 3150 A",
+    image: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Leistungstransformator_neu.jpg",
+    alt: "High-voltage bushings on a utility transformer",
+  },
+  {
+    title: "Epoxy Resin Bushings",
+    detail: "Compact indoor and oil-immersed insulation parts with stable dielectric strength.",
+    specs: "1 kV - 40.5 kV | Custom inserts",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Elfmorgenbruch_220kV-Transformator.jpg",
+    alt: "Transformer equipment with outdoor bushings",
+  },
+  {
+    title: "Capacitive / OIP Bushings",
+    detail: "Engineered high-voltage bushings for grid substations and transformer OEMs.",
+    specs: "Up to 252 kV | IEC tested",
+    image: "/assets/bushing-line.svg",
+    alt: "Illustrated high-voltage transformer bushing product line",
+  },
+];
+
+const capabilities = [
+  "IEC 60137 routine and type-test support",
+  "OEM drawing development and sample matching",
+  "Copper, brass, aluminum and stainless hardware",
+  "Oil leakage, partial discharge and power-frequency tests",
+];
+
+const applications = [
+  "Oil-immersed power transformers",
+  "Distribution transformers",
+  "Pad-mounted and compact substations",
+  "Switchgear and reactor equipment",
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Export supplier of porcelain, epoxy resin and high-voltage transformer bushings for transformer OEMs, utilities and EPC projects."
+    />
+    <title>Transformer Bushings Manufacturer | High Voltage Insulation Export</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="VoltGate Transformer Bushings home">
+        <span class="brand-mark">VG</span>
+        <span>
+          <strong>VoltGate</strong>
+          <small>Transformer Bushings</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#products">Products</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#quality">Quality</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-cta" href="mailto:sales@example.com?subject=Transformer%20Bushing%20Inquiry">
+        Send Inquiry
+      </a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Leistungstransformator_neu.jpg" alt="" />
+        </div>
+        <div class="hero-content">
+          <p class="eyebrow">Export-ready transformer insulation components</p>
+          <h1 id="hero-title">Transformer Bushings Built for OEM Reliability</h1>
+          <p class="hero-copy">
+            Porcelain, epoxy resin and capacitive bushings manufactured for power transformer
+            plants, utility projects and electrical equipment distributors worldwide.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#contact">Request Quote</a>
+            <a class="button secondary" href="#products">View Product Range</a>
+          </div>
+          <dl class="hero-stats" aria-label="Key export capabilities">
+            <div>
+              <dt>72h</dt>
+              <dd>Technical reply</dd>
+            </div>
+            <div>
+              <dt>IEC</dt>
+              <dd>Test alignment</dd>
+            </div>
+            <div>
+              <dt>OEM</dt>
+              <dd>Drawing support</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="trust-band" aria-label="Core strengths">
+        <span>Oil-immersed transformer bushings</span>
+        <span>Porcelain and epoxy insulation</span>
+        <span>Custom terminals and flanges</span>
+        <span>Export packing and documentation</span>
+      </section>
+
+      <section class="section grid-section" id="products" aria-labelledby="products-title">
+        <div class="section-heading">
+          <p class="eyebrow">Product range</p>
+          <h2 id="products-title">Bushings for transformer production and replacement projects</h2>
+          <p>
+            Select standard models or send drawings for terminal, creepage distance, oil-end
+            length, flange and gasket customization.
+          </p>
+        </div>
+        <div class="product-grid">
+          {productLines.map((item) => (
+            <article class="product-card">
+              <img src={item.image} alt={item.alt} />
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.detail}</p>
+                <strong>{item.specs}</strong>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section split" id="engineering" aria-labelledby="engineering-title">
+        <div>
+          <p class="eyebrow">Engineering support</p>
+          <h2 id="engineering-title">From sample matching to shipment-ready batches</h2>
+          <p>
+            Our team reviews your voltage class, current rating, creepage requirements, oil side
+            dimensions and conductor material before quoting. For replacement projects, we can
+            match legacy bushings from photos, drawings or samples.
+          </p>
+          <ul class="check-list">
+            {capabilities.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="spec-panel" aria-label="Typical quote information">
+          <h3>Quote faster with these details</h3>
+          <dl>
+            <div>
+              <dt>Voltage class</dt>
+              <dd>1 kV to 252 kV</dd>
+            </div>
+            <div>
+              <dt>Rated current</dt>
+              <dd>250 A to 3150 A</dd>
+            </div>
+            <div>
+              <dt>Insulation type</dt>
+              <dd>Porcelain, epoxy, OIP</dd>
+            </div>
+            <div>
+              <dt>Standard</dt>
+              <dd>IEC / ANSI request</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="process-band" id="quality" aria-labelledby="quality-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Quality control</p>
+          <h2 id="quality-title">Each shipment is checked for fit, insulation and sealing</h2>
+        </div>
+        <div class="process-grid">
+          <article>
+            <span>01</span>
+            <h3>Incoming Material</h3>
+            <p>Porcelain, resin, conductor and gasket batches are inspected before production.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Electrical Test</h3>
+            <p>Power-frequency withstand, insulation resistance and PD checks are arranged by model.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Export Packing</h3>
+            <p>Moisture protection, wooden cases and clear labels reduce handling risk in transit.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split applications" aria-labelledby="applications-title">
+        <div class="image-frame">
+          <img src="/assets/substation-bushing-diagram.svg" alt="Transformer bushing application diagram" />
+        </div>
+        <div>
+          <p class="eyebrow">Applications</p>
+          <h2 id="applications-title">Designed for demanding power equipment environments</h2>
+          <p>
+            The product range supports new transformer manufacturing, maintenance inventory and
+            project-based electrical equipment supply.
+          </p>
+          <div class="tag-list">
+            {applications.map((item) => <span>{item}</span>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Export inquiry</p>
+          <h2 id="contact-title">Send your drawings, ratings or sample photos</h2>
+          <p>
+            We will confirm feasible materials, test requirements, lead time and packing method for
+            your market.
+          </p>
+        </div>
+        <form class="inquiry-form" action="mailto:sales@example.com" method="post" enctype="text/plain">
+          <label>
+            Name
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            Required product
+            <select name="product">
+              <option>Porcelain transformer bushing</option>
+              <option>Epoxy resin bushing</option>
+              <option>Capacitive / OIP bushing</option>
+              <option>Custom drawing part</option>
+            </select>
+          </label>
+          <label>
+            Project details
+            <textarea name="message" rows="4" placeholder="Voltage, current, standard, drawing number, quantity"></textarea>
+          </label>
+          <button class="button primary" type="submit">Submit Inquiry</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>
+        VoltGate Transformer Bushings
+        <small>
+          Demo photos:
+          <a href="https://commons.wikimedia.org/wiki/File:Leistungstransformator_neu.jpg">Dr. Maik Koch</a>,
+          <a href="https://commons.wikimedia.org/wiki/File:Elfmorgenbruch_220kV-Transformator.jpg">Ikar.us</a>
+        </small>
+      </span>
+      <span>Porcelain | Epoxy | High Voltage | OEM Export</span>
+    </footer>
+  </body>
+</html>
