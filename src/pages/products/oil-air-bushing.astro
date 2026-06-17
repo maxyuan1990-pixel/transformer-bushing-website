@@ -1,0 +1,77 @@
+---
+import ProductDetailLayout from "../../layouts/ProductDetailLayout.astro";
+
+const gallery = [
+  "gallery/oil-air/01.png",
+  "gallery/oil-air/02.png",
+  "gallery/oil-air/03.png",
+  "gallery/oil-air/04.png",
+  "gallery/oil-air/05.png",
+];
+---
+
+<ProductDetailLayout
+  title="RIP/RIF Oil-Air Transformer Bushing"
+  productCode="QXFBRG(P)W(D)(L)"
+  voltage="12kV - 550kV"
+  current="1A - 8000A"
+  description="Product Item: QXFBRG(P)W(D)(L)\nRated Voltage: 12kV - 550kV\nRated Current: 1A - 8000A\nDry-type Condenser Oil-Air Transformer Bushing\nRIP Oil/Air Transformer Bushing\nRIF/RIS Oil/Air Transformer Bushing"
+  mainImage="product-oil-air-bushing.png"
+  galleryImages={gallery}
+>
+
+  <!-- Main Technical Index -->
+  <div class="tech-section-title">Main Technical Index</div>
+  <div class="tech-diagram">
+    <img src="/assets/qxelectric/tech-diagram-oil-air.png" alt="Oil-Air Transformer Bushing Technical Diagram" loading="lazy" />
+  </div>
+  <table class="tech-table">
+    <thead>
+      <tr><th colspan="7">Main Technical Index</th></tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="2">System Nominal Voltage (kV)</td><td>66</td><td>110</td><td>220</td><td>330</td><td>500</td></tr>
+      <tr><td colspan="2">Rated Voltage (Highest Voltage for Equipment) (kV)</td><td>72.5</td><td>126</td><td>252</td><td>363</td><td>550</td></tr>
+      <tr><td colspan="2">Power Frequency Withstand Voltage (kV/min)</td><td>155</td><td>255</td><td>505</td><td>625</td><td>750</td></tr>
+      <tr><td rowspan="2">Lightning Impulse Withstand Voltage</td><td>Full Wave</td><td>325</td><td>550</td><td>1050</td><td>1175</td><td>1800</td></tr>
+      <tr><td>Chopped Wave</td><td>357.5</td><td>605</td><td>1155</td><td>1292.5</td><td>1980</td></tr>
+      <tr><td colspan="2">Switching Impulse Withstand Voltage (kV)</td><td>-</td><td>-</td><td>850</td><td>950</td><td>1300</td></tr>
+      <tr><td rowspan="2">Dielectric Dissipation Factor</td><td>Maximum</td><td colspan="5">The value at 1.05Um/√3 shall not exceed 0.4%.</td></tr>
+      <tr><td>Increment</td><td colspan="5">The increment between 1.05Um/√3 and Um shall not exceed 0.1%.</td></tr>
+      <tr><td colspan="2">Test Terminal Insulation Level (kV/min)</td><td colspan="5">3</td></tr>
+      <tr><td rowspan="2">Partial Discharge Level (pC)</td><td>Um</td><td colspan="5">≤10</td></tr>
+      <tr><td>1.05Um/√3</td><td colspan="5">≤5</td></tr>
+      <tr><td colspan="2">Pressure Tightness Test</td><td colspan="5">0.8 MPa/24h, no leakage.</td></tr>
+      <tr><td colspan="2">Short-Time Withstand Current</td><td colspan="5">Magnitude: 25 times rated current, max 100kA. Duration: 2s.</td></tr>
+      <tr><td colspan="2">Rated Frequency (Hz)</td><td colspan="5">50</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Product Advantages -->
+  <div class="tech-section-title">Product Advantages</div>
+  <div class="content-block">
+    <p><strong>Flexible Conductor Design:</strong> Offered in either draw-lead (cable) or solid-stem conductor configurations to suit various connection needs.</p>
+    <p><strong>Solid &amp; Sealed:</strong> The solid dielectric core eliminates common oil leakage and moisture ingress issues, guaranteeing stable performance.</p>
+    <p><strong>Custom Design:</strong> Tailored to your specific electrical and mechanical interface requirements.</p>
+    <p>Designed for the external connection point of oil-immersed transformers, providing a reliable interface between the transformer's internal oil environment and the external air-side connection.</p>
+  </div>
+
+  <!-- Service Conditions -->
+  <div class="tech-section-title">Suitable Service Conditions for Bushings</div>
+  <div class="content-block">
+    <p><strong>Ambient Temperature:</strong> Suitable for a range of -50 °C to +50 °C. For environments outside this range, the technical specifications shall be subject to agreement between the supplier and the purchaser.</p>
+    <p><strong>Installation Angle:</strong> Can be installed at any angle.</p>
+    <p><strong>Altitude:</strong> Applicable for installations at or below 2000m above sea level.</p>
+  </div>
+
+  <!-- Ordering Information -->
+  <div class="tech-section-title">Ordering Information</div>
+  <div class="content-block">
+    <p>When placing an order, please specify the following parameters:</p>
+    <p><strong>1. Electrical Parameters:</strong> Rated voltage, rated current, rated frequency, external insulation creepage distance, internal insulation clearance, oil-end length, draw-lead length (critical), CT mounting position length (critical).</p>
+    <p><strong>2. Environmental Parameters:</strong> Ambient temperature.</p>
+    <p><strong>3. Installation Details:</strong> Please indicate if a measurement terminal is required. If yes, please provide the required installation dimensions for the terminal.</p>
+    <p><strong>Note:</strong> The dimensions of the bushing flange and terminals can be custom-designed according to the transformer manufacturer's requirements. We also supply direct replacement bushings for existing installations.</p>
+  </div>
+
+</ProductDetailLayout>

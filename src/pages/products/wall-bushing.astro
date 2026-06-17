@@ -1,0 +1,90 @@
+---
+import ProductDetailLayout from "../../layouts/ProductDetailLayout.astro";
+
+const gallery = [
+  "gallery/wall/wall-02.png",
+  "gallery/wall/wall-03.png",
+  "gallery/wall/wall-04.png",
+];
+---
+
+<ProductDetailLayout
+  title="RIP/RIF Wall Bushing"
+  productCode="QXFCRG(P)W(L)"
+  voltage="24kV - 550kV"
+  current="630A - 8000A"
+  description="Product Item: QXFCRG(P)W(L)\nRated Voltage: 24kV - 550kV\nRated Current: 630A - 8000A\nDry-type Condenser Wall Bushing\nRIP Wall Bushing\nRIF Wall Bushing"
+  mainImage="product-wall-bushing.png"
+  galleryImages={gallery}
+>
+
+  <div class="tech-section-title">Main Technical Index</div>
+  <div class="tech-diagram">
+    <img src="/assets/qxelectric/tech-diagram-wall.png" alt="Wall Bushing Technical Diagram" loading="lazy" />
+  </div>
+  <table class="tech-table">
+    <thead><tr><th colspan="9">Main Technical Index</th></tr></thead>
+    <tbody>
+      <tr><td colspan="2">System Nominal Voltage (kV)</td><td>10</td><td>20</td><td>35</td><td>66</td><td>110</td><td>220</td><td>330</td></tr>
+      <tr><td colspan="2">Rated Voltage (Highest Voltage for Equipment) (kV)</td><td>12</td><td>24</td><td>40.5</td><td>72.5</td><td>126</td><td>252</td><td>363</td></tr>
+      <tr><td rowspan="2">Power Frequency Withstand Voltage (kV/min)</td><td>Dry</td><td>28</td><td>50</td><td>95</td><td>140</td><td>230</td><td>460</td><td>570</td></tr>
+      <tr><td>Wet</td><td>28</td><td>50</td><td>80</td><td>140</td><td>230</td><td>460</td><td>535</td></tr>
+      <tr><td rowspan="2">Lightning Impulse Withstand Voltage</td><td>Full Wave</td><td>75</td><td>125</td><td>200</td><td>325</td><td>550</td><td>950</td><td>1175</td></tr>
+      <tr><td>Chopped Wave</td><td>82.5</td><td>137.5</td><td>220</td><td>357.5</td><td>605</td><td>1045</td><td>1292.5</td></tr>
+      <tr><td colspan="2">Switching Impulse Withstand Voltage (kV)</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>850</td><td>950</td></tr>
+      <tr><td rowspan="2">Dielectric Dissipation Factor</td><td>Maximum</td><td colspan="7">The value at 1.05Um/√3 shall not exceed 0.4%.</td></tr>
+      <tr><td>Increment</td><td colspan="7">The increment between 1.05Um/√3 and Um shall not exceed 0.1%.</td></tr>
+      <tr><td colspan="2">Test Terminal Insulation Level (kV/min)</td><td colspan="7">3</td></tr>
+      <tr><td rowspan="2">Partial Discharge Level (pC)</td><td>Um</td><td colspan="7">≤10</td></tr>
+      <tr><td>1.05Um/√3</td><td colspan="7">≤5</td></tr>
+      <tr><td colspan="2">Pressure Tightness Test</td><td colspan="7">0.6MPa/20min, no leakage.</td></tr>
+      <tr><td colspan="2">Short-Time Withstand Current</td><td colspan="7">Magnitude: 25 times rated current, max 100kA. Duration: 2s.</td></tr>
+      <tr><td colspan="2">Rated Frequency (Hz)</td><td colspan="7">50</td></tr>
+      <tr><td colspan="2">Outdoor Shed</td><td colspan="7">Outdoor sheds with alternating long and short profiles. Nominal creepage distance complies with GB/T 26218.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Cantilever Load -->
+  <table class="tech-table">
+    <thead><tr><th colspan="5">Cantilever Withstand Load (N)</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="2">Rated Voltage (kV)</td><td colspan="4">Rated Current (A)</td></tr>
+      <tr><td>≤800</td><td>1000-1600</td><td>2000-2500</td><td>≥3150</td></tr>
+      <tr><td>≤52</td><td>1600N</td><td>1600N</td><td>2500N</td><td>3150N</td></tr>
+      <tr><td>72.5</td><td>2000N</td><td>2000N</td><td>3150N</td><td>4000N</td></tr>
+      <tr><td>123~145</td><td>3150N</td><td>3150N</td><td>4000N</td><td>4000N</td></tr>
+      <tr><td>170~363</td><td>4000N</td><td>4000N</td><td>5000N</td><td>5000N</td></tr>
+    </tbody>
+  </table>
+
+  <div class="content-block">
+    <p>Our Wall Bushings are engineered for safe and stable power passage through walls or floors in substations, featuring a revolutionary solid insulation design.</p>
+  </div>
+
+  <div class="tech-section-title">Product Advantages</div>
+  <div class="content-block">
+    <p><strong>End of Leakage Problems:</strong> Unlike traditional oil-impregnated paper bushings (prone to oil leakage, aging, poor seismic performance) or so-called "dry-type" bushings with silicone oil filler, our bushings have nothing to leak.</p>
+    <p><strong>Monolithic Solid Structure:</strong> Whether RIF or RIP, the core is a single, void-free solid dielectric with no internal seals to fail and no fillers to degrade.</p>
+    <p><strong>Ultimate Reliability:</strong> This seamless construction guarantees exceptional dielectric performance, mechanical strength, and seismic resistance over the entire service life.</p>
+    <p><strong>Custom Design:</strong> Available for a wide range of wall thicknesses and mounting configurations.</p>
+  </div>
+
+  <div class="tech-section-title">Suitable Service Conditions for Bushings</div>
+  <div class="content-block">
+    <p><strong>Altitude:</strong> Applicable for installations at or below 2000m above sea level.</p>
+    <p><strong>Ambient Temperature:</strong> Suitable for -50 °C to +50 °C.</p>
+    <p><strong>Installation Angle:</strong> Can be installed at any angle.</p>
+    <p><strong>Pollution Class:</strong> Suitable for heavily polluted areas, Class III or higher.</p>
+  </div>
+
+  <div class="tech-section-title">Ordering Information</div>
+  <div class="content-block">
+    <p>When placing an order, please specify:</p>
+    <p><strong>1. Electrical Parameters:</strong> Rated voltage, rated current, rated frequency, external insulation creepage distance, internal insulation clearance, oil-end length, draw-lead length, CT mounting position length.</p>
+    <p><strong>2. Environmental Parameters:</strong> Ambient temperature, altitude, pollution class.</p>
+    <p><strong>3. Installation Details:</strong> If a through-type CT is to be fitted, specify whether split-type or integrated-type CT is required, with relevant CT parameters.</p>
+    <p><strong>4. Model Designation:</strong> The letter "F" indicates silicone rubber composite sheds. Absence of "F" indicates porcelain sheds.</p>
+    <p><strong>Note:</strong> Custom flange and terminal dimensions available. Direct replacement bushings also supplied.</p>
+  </div>
+
+</ProductDetailLayout>

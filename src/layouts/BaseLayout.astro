@@ -1,0 +1,94 @@
+---
+import "../styles/global.css";
+import { company, navItems } from "../data/site.js";
+
+const {
+  title = `${company.name} | ${company.tagline}`,
+  description = "High voltage bushing manufacturer for transformer, GIS, wall and oil-SF6 applications.",
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const layoutNavItems = [
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products/", children: [
+    { label: "RIP/RIF Oil-Air Transformer Bushing", href: "/products/oil-air-bushing/" },
+    { label: "RIP/RIF Oil-SF6 Transformer Bushing", href: "/products/oil-sf6-bushing/" },
+    { label: "RIP/RIF Oil-Oil Transformer Bushing", href: "/products/oil-oil-bushing/" },
+    { label: "RIP/RIF High Current Transformer Bushing", href: "/products/high-current-bushing/" },
+    { label: "RIP/RIF GIS Outlet Bushing", href: "/products/gis-bushing/" },
+    { label: "RIP/RIF Wall Bushing", href: "/products/wall-bushing/" },
+  ]},
+  { label: "Reference Projects", href: "/applications/" },
+  { label: "Downloads", href: "/downloads/" },
+  { label: "About", href: "/about/" },
+  { label: "Contact", href: "/contact/" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="utility">
+        <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">📞 {company.contact.phone} (Phone &amp; WhatsApp)</a>
+        <span>Contact: {company.contact.person}, {company.contact.title}</span>
+      </div>
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/assets/qixing-high-voltage-logo.svg" alt="Qixing High Voltage" />
+        </a>
+        <div class="nav-links">
+          {layoutNavItems.map((item) => (
+            item.children ? (
+              <div class="nav-dropdown">
+                <a class={currentPath.startsWith(item.href) ? "active" : ""} href={item.href}>
+                  {item.label} <span class="dropdown-arrow">▾</span>
+                </a>
+                <div class="dropdown-menu">
+                  {item.children.map((child) => (
+                    <a href={child.href} class:list={["dropdown-link", { active: currentPath === child.href }]}>
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a class={currentPath === item.href ? "active" : ""} href={item.href}>
+                {item.label}
+              </a>
+            )
+          ))}
+        </div>
+        <a class="nav-cta" href="/products/">View Products</a>
+      </nav>
+    </header>
+    <slot />
+    <footer class="footer">
+      <div>
+        <strong>{company.name}</strong>
+        <p>High voltage bushings for transformers, GIS, wall penetration and power grid projects.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/products/">Products</a>
+        <a href="/applications/">Reference Projects</a>
+        <a href="/downloads/">Downloads</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <address>
+        <span>Contact: {company.contact.person}, {company.contact.title}</span>
+        <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">Tel/WhatsApp: {company.contact.phone}</a>
+        <a href={`mailto:${company.contact.email}`}>Email: {company.contact.email}</a>
+        <span>Address: {company.contact.address}</span>
+      </address>
+    </footer>
+  </body>
+</html>

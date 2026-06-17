@@ -1,0 +1,92 @@
+---
+import PageHero from "../components/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { company } from "../data/site.js";
+
+const trustStats = [
+  { value: "50,000+", label: "Installations" },
+  { value: "550kV", label: "Testing Lab" },
+  { value: "ISO 9001", label: "Certified" },
+  { value: "24h", label: "Engineering Response" },
+];
+---
+
+<BaseLayout title={`Contact | ${company.name}`}>
+  <main>
+    <PageHero
+      eyebrow="Contact"
+      title="Get Engineering Support Within 24 Hours"
+      text="Reach Mark Yan directly for technical sales, product selection and project inquiries."
+      image="/assets/factory-testing-line.jpg"
+    />
+
+    <section class="trust-row" aria-label="Contact trust signals">
+      {trustStats.map((item) => (
+        <article>
+          <div>
+            <strong>{item.value}</strong>
+            <p>{item.label}</p>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="section split">
+      <div>
+        <div class="contact-card">
+          <div class="contact-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <strong>{company.contact.person}</strong>
+            <span>{company.contact.title}</span>
+            <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">{company.contact.phone} (WhatsApp)</a>
+            <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
+          </div>
+        </div>
+        <p>Address: {company.contact.address}</p>
+      </div>
+      <div>
+        <p class="eyebrow">Send inquiry</p>
+        <h2>Share your voltage, application and drawing reference</h2>
+        <form class="contact-form" data-contact-form>
+          <div class="form-row full">
+            <input type="email" placeholder="Your Email *" required />
+          </div>
+          <div class="form-row">
+            <input type="text" placeholder="Voltage Class (e.g. 252kV)" />
+            <input type="text" placeholder="Application (Transformer / GIS / Wall)" />
+          </div>
+          <div class="form-row full">
+            <textarea rows="4" placeholder="Additional requirements or drawings reference"></textarea>
+          </div>
+          <button class="button primary orange" type="submit">Send Inquiry →</button>
+        </form>
+        <p class="inquiry-success" data-contact-success hidden>Thank you! Mark will reply within 24 hours.</p>
+      </div>
+    </section>
+
+    <section class="cta-panel">
+      <div>
+        <p class="eyebrow">Fast response</p>
+        <h2>Prefer WhatsApp?</h2>
+        <p>Chat directly with Mark for faster response.</p>
+      </div>
+      <a class="button primary orange" href={company.contact.whatsappUrl} target="_blank" rel="noopener">Chat on WhatsApp →</a>
+    </section>
+
+    <script>
+      const form = document.querySelector("[data-contact-form]");
+      const success = document.querySelector("[data-contact-success]");
+      if (form && success) {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          success.hidden = false;
+          form.reset();
+        });
+      }
+    </script>
+  </main>
+</BaseLayout>

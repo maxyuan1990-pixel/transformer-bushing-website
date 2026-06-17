@@ -3,3 +3,6 @@ dist/
 .astro/
 .env
 .env.local
+Brochure.pdf
+.brochure-text.txt
+.pdf-pages/

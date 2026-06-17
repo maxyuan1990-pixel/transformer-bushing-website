@@ -1,0 +1,107 @@
+---
+import PageHero from "../components/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { company } from "../data/site.js";
+
+const reportGroups = [
+  {
+    title: "550kV Class",
+    reports: [
+      "550kV RIP Transformer Bushing Testing Report",
+      "550kV Dry-type Transformer Bushing Testing Report",
+      "550kV Impregnated Paper Inspection Report",
+      "550kV Dry-type Inspection Report",
+    ],
+  },
+  {
+    title: "363kV Class",
+    reports: ["363kV Impregnated Paper Inspection Report"],
+  },
+  {
+    title: "252kV Class",
+    reports: [
+      "252kV RIP Transformer Bushing Testing Report",
+      "252-4000 Wall Bushing Testing Report",
+    ],
+  },
+  {
+    title: "126kV Class",
+    reports: [
+      "126kV RIP Transformer Bushing Testing Report",
+      "126kV RIF Transformer Bushing Testing Report",
+    ],
+  },
+  {
+    title: "72.5kV & Below",
+    reports: [
+      "72.5kV RIP Transformer Bushing Testing Report",
+      "40.5kV Fiberglass Capacitive Through-Wall Bushing Inspection Report",
+      "27.5kV High-Speed Railway Wall Bushing Inspection Report",
+    ],
+  },
+];
+
+const requestLink = (report) =>
+  `mailto:${company.contact.email}?subject=${encodeURIComponent(`Request Test Report: ${report}`)}`;
+---
+
+<BaseLayout title={`Downloads | ${company.name}`}>
+  <main>
+    <PageHero
+      eyebrow="Technical Library"
+      title="Testing Reports & Certifications"
+      text="Download third-party type test reports for RIP/RIF bushings from 12kV to 550kV. All reports issued by accredited testing laboratories."
+      image="/assets/inspection-reports.jpg"
+    />
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Testing reports</p>
+        <h2>Engineering documents for pre-procurement review</h2>
+        <p>
+          These reports cover routine tests, type tests and special performance verification — helping
+          engineering teams and project owners evaluate product compliance before procurement.
+        </p>
+      </div>
+      {reportGroups.map((group) => (
+        <div class="compact">
+          <h3>{group.title}</h3>
+          <div class="product-grid large">
+            {group.reports.map((report) => (
+              <article class="product-card flat">
+                <div>
+                  <span>Testing Report</span>
+                  <h3>{report}</h3>
+                  <p>PDF file is available on request. Contact Mark Yan and specify your project voltage class.</p>
+                  <a class="button primary orange" href={requestLink(report)}>Request by Email →</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="cta-panel">
+      <div>
+        <p class="eyebrow">Document support</p>
+        <h2>Need a specific test report not listed here?</h2>
+        <p>Contact Mark Yan for the latest testing reports, certificates and model selection documents.</p>
+        <div class="contact-card">
+          <div class="contact-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <strong>{company.contact.person}</strong>
+            <span>{company.contact.title}</span>
+            <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">{company.contact.phone} (WhatsApp)</a>
+            <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
+          </div>
+        </div>
+      </div>
+      <a class="button primary orange" href="/contact/">Contact Mark Yan →</a>
+    </section>
+  </main>
+</BaseLayout>

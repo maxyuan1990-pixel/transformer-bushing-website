@@ -1,263 +1,256 @@
 ---
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { company } from "../data/site.js";
 
-const productLines = [
+const trustStats = [
+  { icon: "factory", value: "50,000+", label: "Bushings Delivered" },
+  { icon: "calendar", value: "12", label: "Years of Manufacturing Excellence" },
+  { icon: "rail", value: "75%", label: "Railway Market Share in China" },
+];
+
+const advantages = [
+  { icon: "fire", title: "Fire-safe", text: "No oil, no explosion risk" },
+  { icon: "tool", title: "Maintenance-free", text: "Zero field maintenance" },
+  { icon: "scale", title: "Lightweight", text: "30-50% lighter than porcelain" },
+  { icon: "angle", title: "Any Angle", text: "Horizontal, vertical, or tilted installation" },
+  { icon: "leaf", title: "Eco-friendly", text: "No SF6, no oil leakage" },
+];
+
+const products = [
+  ["Oil-Air Transformer Bushing", "12kV-550kV / 1A-8000A"],
+  ["Oil-SF6 Transformer Bushing", "40.5kV-550kV / 630A-8000A"],
+  ["Oil-Oil Transformer Bushing", "40.5kV-550kV / 630A-8000A"],
+  ["High Current Transformer Bushing", "24kV-40.5kV / 12,500A-40,000A"],
+  ["GIS Outlet Bushing", "40.5kV-550kV / 1000A-8000A"],
+  ["Wall Bushing", "24kV-550kV / 630A-8000A"],
+];
+
+const cases = [
   {
-    title: "Porcelain Transformer Bushings",
-    detail: "Weatherproof glazed porcelain bodies for distribution and power transformers.",
-    specs: "Up to 72.5 kV | 250 A - 3150 A",
-    image: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Leistungstransformator_neu.jpg",
-    alt: "High-voltage bushings on a utility transformer",
+    name: "Lhasa-Nyingchi Railway",
+    country: "Tibet, China",
+    model: "220kV Transformer Bushing",
+    result: "Reliable dry-type insulation performance for high-altitude railway power infrastructure.",
   },
   {
-    title: "Epoxy Resin Bushings",
-    detail: "Compact indoor and oil-immersed insulation parts with stable dielectric strength.",
-    specs: "1 kV - 40.5 kV | Custom inserts",
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Elfmorgenbruch_220kV-Transformator.jpg",
-    alt: "Transformer equipment with outdoor bushings",
+    name: "Sichuan Batang 500kV Substation",
+    country: "State Grid",
+    model: "252kV Bushing",
+    result: "Applied in a critical 500kV grid node requiring stable transformer operation.",
   },
   {
-    title: "Capacitive / OIP Bushings",
-    detail: "Engineered high-voltage bushings for grid substations and transformer OEMs.",
-    specs: "Up to 252 kV | IEC tested",
-    image: "/assets/bushing-line.svg",
-    alt: "Illustrated high-voltage transformer bushing product line",
+    name: "Gansu 500MW Solar + Storage Project",
+    country: "Longyuan Power",
+    model: "330kV Bushing",
+    result: "Supported renewable energy transmission with high-voltage bushing equipment.",
   },
 ];
 
-const capabilities = [
-  "IEC 60137 routine and type-test support",
-  "OEM drawing development and sample matching",
-  "Copper, brass, aluminum and stainless hardware",
-  "Oil leakage, partial discharge and power-frequency tests",
-];
-
-const applications = [
-  "Oil-immersed power transformers",
-  "Distribution transformers",
-  "Pad-mounted and compact substations",
-  "Switchgear and reactor equipment",
+const certifications = ["ISO 9001", "ISO 14001", "ISO 45001", "CE", "IEC 60137", "DL/T 1001"];
+const customers = ["TBEA", "XD Electric", "Baoding Tianwei Baobian", "Pinggao Group", "Yunnan Transformer"];
+const factoryStats = [
+  "9,950 m2 Manufacturing Facility",
+  "100+ Skilled Employees",
+  "RMB 300M Annual Production Capacity",
+  "4,917+ Railway Bushings in Service",
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Export supplier of porcelain, epoxy resin and high-voltage transformer bushings for transformer OEMs, utilities and EPC projects."
-    />
-    <title>Transformer Bushings Manufacturer | High Voltage Insulation Export</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="VoltGate Transformer Bushings home">
-        <span class="brand-mark">VG</span>
-        <span>
-          <strong>VoltGate</strong>
-          <small>Transformer Bushings</small>
+<BaseLayout
+  title={`${company.name} | Dry-type Bushing Specialist`}
+  description="RIP/RIF capacitive dry-type bushings from 12kV to 550kV for transformer, GIS, wall and railway power projects."
+>
+  <main>
+    <section class="conversion-hero">
+      <img src="/assets/hv-bushing-transformer-yard.jpg" alt="" />
+      <div class="hero-shade"></div>
+      <div class="conversion-hero-content">
+        <h1>Dry-type Bushing Specialist | 50,000+ Global Installations</h1>
+        <p>
+          RIP/RIF Capacitive Bushings - 12kV to 550kV - IEC 60137 &amp; GB/T 4109 Certified
+        </p>
+        <div class="hero-actions">
+          <a class="button primary orange hero-primary" href="#inquiry">Request a Quote →</a>
+          <button class="button outline-light" popovertarget="catalog-popover" type="button">
+            Download Product Catalog →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="catalog-popover" id="catalog-popover" popover>
+      <button class="popover-close" popovertarget="catalog-popover" popovertargetaction="hide" type="button">x</button>
+      <p class="eyebrow">Product catalog</p>
+      <h2>Get the bushing catalog</h2>
+      <p>Leave your email and our sales engineer will send the catalog after contact details are confirmed.</p>
+      <form class="mini-form">
+        <input type="email" placeholder="Business email *" required />
+        <button class="button primary orange" type="submit">Request Catalog</button>
+      </form>
+    </div>
+
+    <section class="trust-row" aria-label="Factory trust numbers">
+      {trustStats.map((item) => (
+        <article>
+          <span class={`line-icon ${item.icon}`} aria-hidden="true"></span>
+          <div>
+            <strong>{item.value}</strong>
+            <p>{item.label}</p>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="section tech-choice">
+      <div>
+        <p class="eyebrow">Why dry-type bushings</p>
+        <h2>Safer insulation for modern transformer and grid equipment</h2>
+        <p>
+          RIP/RIF dry-type capacitive bushings replace oil-paper and porcelain-heavy designs with a
+          compact solid insulation system. With no internal oil or SF6, the structure reduces fire,
+          explosion and leakage risk while improving installation flexibility. The lighter body helps
+          transformer OEMs simplify handling, transport and site assembly. For utilities and EPC
+          projects, dry-type bushings provide cleaner lifecycle performance, lower maintenance burden
+          and stable operation in horizontal, vertical or tilted mounting positions.
+        </p>
+        <a class="button primary orange" href="/products/">See Technical Comparison →</a>
+      </div>
+      <div class="advantage-grid">
+        {advantages.map((item) => (
+          <article>
+            <span class={`line-icon ${item.icon}`} aria-hidden="true"></span>
+            <strong>{item.title}</strong>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section product-range">
+      <div class="section-heading center">
+        <p class="eyebrow">Product Center</p>
+        <h2>Our Product Range</h2>
+      </div>
+      <div class="conversion-product-grid">
+        {products.map(([name, range], index) => (
+          <article>
+            <span class="product-icon" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+            <h3>{name}</h3>
+            <p>{range}</p>
+            <a href="/products/">View Details →</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section cases-preview">
+      <div class="section-heading center">
+        <p class="eyebrow">Reference Projects</p>
+        <h2>Proven in Critical Projects</h2>
+      </div>
+      <div class="project-grid">
+        {cases.map((item) => (
+          <article>
+            <img src="/assets/application-transformer-sites.jpg" alt="" />
+            <div>
+              <h3>{item.name}</h3>
+              <span>{item.country}</span>
+              <strong>{item.model}</strong>
+              <p>{item.result}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <a class="text-link" href="/applications/">View All Reference Projects →</a>
+    </section>
+
+    <section class="section trusted">
+      <div class="section-heading center">
+        <p class="eyebrow">Certifications and customers</p>
+        <h2>Trusted By Industry Leaders</h2>
+      </div>
+      <div class="badge-row">
+        {certifications.map((item) => <span>{item}</span>)}
+      </div>
+      <div class="customer-row">
+        {customers.map((item) => <span>{item}</span>)}
+      </div>
+    </section>
+
+    <section class="section factory-overview">
+      <div class="factory-images">
+        <img src="/assets/factory-testing-line.jpg" alt="High voltage bushing factory testing line" />
+        <img src="/assets/inspection-reports.jpg" alt="Inspection reports and certificates" />
+        <img src="/assets/product-structure-table.jpg" alt="Product structure and technical table" />
+      </div>
+      <div>
+        <p class="eyebrow">Factory overview</p>
+        <h2>Manufacturing capability for large-scale power projects</h2>
+        <div class="factory-stat-list">
+          {factoryStats.map((item) => <strong>{item}</strong>)}
+        </div>
+        <a class="button primary orange" href="/about/">Virtual Factory Tour →</a>
+      </div>
+    </section>
+
+    <section class="final-inquiry" id="inquiry">
+      <div class="section-heading center">
+        <p class="eyebrow">Fast engineering response</p>
+        <h2>Get Your Bushing Solution</h2>
+        <p>Tell us your voltage, current, and application - we'll respond within 24 hours.</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <strong>{company.contact.person}</strong>
+          <span>{company.contact.title}</span>
+          <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">📞 {company.contact.phone} (Phone &amp; WhatsApp)</a>
+          <a href={`mailto:${company.contact.email}`}>✉️ {company.contact.email}</a>
+        </div>
+      </div>
+      <form class="inquiry-line" data-inquiry-form>
+        <input type="email" placeholder="Email *" required />
+        <input type="text" placeholder="Message" />
+        <button class="button primary orange" type="submit">Submit Inquiry →</button>
+      </form>
+      <p class="inquiry-success" data-inquiry-success hidden>Thank you! We'll respond within 24 hours.</p>
+      <p class="contact-line">
+        <a href="/contact/">Contact</a> | <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">{company.contact.whatsapp}</a> | <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
+      </p>
+    </section>
+
+    <div class="floating-actions" aria-label="Quick contact actions">
+      <a class="whatsapp-float-wrap" href={company.contact.whatsappUrl} aria-label="Chat on WhatsApp">
+        <span class="whatsapp-bubble" data-whatsapp-bubble>Chat on WhatsApp 💬</span>
+        <span class="float-whatsapp" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" fill="currentColor"/>
+          </svg>
         </span>
       </a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#products">Products</a>
-        <a href="#engineering">Engineering</a>
-        <a href="#quality">Quality</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="header-cta" href="mailto:sales@example.com?subject=Transformer%20Bushing%20Inquiry">
-        Send Inquiry
-      </a>
-    </header>
+    </div>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Leistungstransformator_neu.jpg" alt="" />
-        </div>
-        <div class="hero-content">
-          <p class="eyebrow">Export-ready transformer insulation components</p>
-          <h1 id="hero-title">Transformer Bushings Built for OEM Reliability</h1>
-          <p class="hero-copy">
-            Porcelain, epoxy resin and capacitive bushings manufactured for power transformer
-            plants, utility projects and electrical equipment distributors worldwide.
-          </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#contact">Request Quote</a>
-            <a class="button secondary" href="#products">View Product Range</a>
-          </div>
-          <dl class="hero-stats" aria-label="Key export capabilities">
-            <div>
-              <dt>72h</dt>
-              <dd>Technical reply</dd>
-            </div>
-            <div>
-              <dt>IEC</dt>
-              <dd>Test alignment</dd>
-            </div>
-            <div>
-              <dt>OEM</dt>
-              <dd>Drawing support</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
+    <script>
+      const bubble = document.querySelector("[data-whatsapp-bubble]");
+      if (bubble) {
+        window.setTimeout(() => {
+          bubble.classList.add("is-closed");
+        }, 8000);
+      }
 
-      <section class="trust-band" aria-label="Core strengths">
-        <span>Oil-immersed transformer bushings</span>
-        <span>Porcelain and epoxy insulation</span>
-        <span>Custom terminals and flanges</span>
-        <span>Export packing and documentation</span>
-      </section>
-
-      <section class="section grid-section" id="products" aria-labelledby="products-title">
-        <div class="section-heading">
-          <p class="eyebrow">Product range</p>
-          <h2 id="products-title">Bushings for transformer production and replacement projects</h2>
-          <p>
-            Select standard models or send drawings for terminal, creepage distance, oil-end
-            length, flange and gasket customization.
-          </p>
-        </div>
-        <div class="product-grid">
-          {productLines.map((item) => (
-            <article class="product-card">
-              <img src={item.image} alt={item.alt} />
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.detail}</p>
-                <strong>{item.specs}</strong>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section class="section split" id="engineering" aria-labelledby="engineering-title">
-        <div>
-          <p class="eyebrow">Engineering support</p>
-          <h2 id="engineering-title">From sample matching to shipment-ready batches</h2>
-          <p>
-            Our team reviews your voltage class, current rating, creepage requirements, oil side
-            dimensions and conductor material before quoting. For replacement projects, we can
-            match legacy bushings from photos, drawings or samples.
-          </p>
-          <ul class="check-list">
-            {capabilities.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-        <div class="spec-panel" aria-label="Typical quote information">
-          <h3>Quote faster with these details</h3>
-          <dl>
-            <div>
-              <dt>Voltage class</dt>
-              <dd>1 kV to 252 kV</dd>
-            </div>
-            <div>
-              <dt>Rated current</dt>
-              <dd>250 A to 3150 A</dd>
-            </div>
-            <div>
-              <dt>Insulation type</dt>
-              <dd>Porcelain, epoxy, OIP</dd>
-            </div>
-            <div>
-              <dt>Standard</dt>
-              <dd>IEC / ANSI request</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section class="process-band" id="quality" aria-labelledby="quality-title">
-        <div class="section-heading compact">
-          <p class="eyebrow">Quality control</p>
-          <h2 id="quality-title">Each shipment is checked for fit, insulation and sealing</h2>
-        </div>
-        <div class="process-grid">
-          <article>
-            <span>01</span>
-            <h3>Incoming Material</h3>
-            <p>Porcelain, resin, conductor and gasket batches are inspected before production.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Electrical Test</h3>
-            <p>Power-frequency withstand, insulation resistance and PD checks are arranged by model.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Export Packing</h3>
-            <p>Moisture protection, wooden cases and clear labels reduce handling risk in transit.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section split applications" aria-labelledby="applications-title">
-        <div class="image-frame">
-          <img src="/assets/substation-bushing-diagram.svg" alt="Transformer bushing application diagram" />
-        </div>
-        <div>
-          <p class="eyebrow">Applications</p>
-          <h2 id="applications-title">Designed for demanding power equipment environments</h2>
-          <p>
-            The product range supports new transformer manufacturing, maintenance inventory and
-            project-based electrical equipment supply.
-          </p>
-          <div class="tag-list">
-            {applications.map((item) => <span>{item}</span>)}
-          </div>
-        </div>
-      </section>
-
-      <section class="contact" id="contact" aria-labelledby="contact-title">
-        <div>
-          <p class="eyebrow">Export inquiry</p>
-          <h2 id="contact-title">Send your drawings, ratings or sample photos</h2>
-          <p>
-            We will confirm feasible materials, test requirements, lead time and packing method for
-            your market.
-          </p>
-        </div>
-        <form class="inquiry-form" action="mailto:sales@example.com" method="post" enctype="text/plain">
-          <label>
-            Name
-            <input type="text" name="name" autocomplete="name" required />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" autocomplete="email" required />
-          </label>
-          <label>
-            Required product
-            <select name="product">
-              <option>Porcelain transformer bushing</option>
-              <option>Epoxy resin bushing</option>
-              <option>Capacitive / OIP bushing</option>
-              <option>Custom drawing part</option>
-            </select>
-          </label>
-          <label>
-            Project details
-            <textarea name="message" rows="4" placeholder="Voltage, current, standard, drawing number, quantity"></textarea>
-          </label>
-          <button class="button primary" type="submit">Submit Inquiry</button>
-        </form>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <span>
-        VoltGate Transformer Bushings
-        <small>
-          Demo photos:
-          <a href="https://commons.wikimedia.org/wiki/File:Leistungstransformator_neu.jpg">Dr. Maik Koch</a>,
-          <a href="https://commons.wikimedia.org/wiki/File:Elfmorgenbruch_220kV-Transformator.jpg">Ikar.us</a>
-        </small>
-      </span>
-      <span>Porcelain | Epoxy | High Voltage | OEM Export</span>
-    </footer>
-  </body>
-</html>
+      const inquiryForm = document.querySelector("[data-inquiry-form]");
+      const inquirySuccess = document.querySelector("[data-inquiry-success]");
+      if (inquiryForm && inquirySuccess) {
+        inquiryForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          inquirySuccess.hidden = false;
+          inquiryForm.reset();
+        });
+      }
+    </script>
+  </main>
+</BaseLayout>

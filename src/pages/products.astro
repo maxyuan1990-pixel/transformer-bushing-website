@@ -1,0 +1,268 @@
+---
+import PageHero from "../components/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { company } from "../data/site.js";
+
+const trustStats = [
+  { value: "50,000+", label: "Bushings Delivered" },
+  { value: "12", label: "Years Manufacturing" },
+  { value: "ISO 9001", label: "Certified" },
+  { value: "75%", label: "Railway Market Share" },
+];
+
+const products = [
+  {
+    code: "QXFBRGW(D)-(L)",
+    title: "Oil-Air Transformer Bushing",
+    voltage: "12kV-550kV",
+    current: "1A-8000A",
+    description: "Dry-type capacitive bushing for oil-immersed transformers with outdoor air-side connection.",
+    tags: ["Transformer", "Oil-Air", "Outdoor"],
+    image: "product-oil-air-bushing.webp",
+    href: "/products/oil-air-bushing/",
+  },
+  {
+    code: "QXFBRGW(L)",
+    title: "Oil-SF6 Transformer Bushing",
+    voltage: "40.5kV-550kV",
+    current: "630A-8000A",
+    description: "Transition bushing for transformer-to-GIS interfaces in compact substation layouts.",
+    tags: ["Transformer", "GIS", "Oil-SF6"],
+    image: "product-oil-sf6-bushing.webp",
+    href: "/products/oil-sf6-bushing/",
+  },
+  {
+    code: "QXFGRBO(L)",
+    title: "Oil-Oil Transformer Bushing",
+    voltage: "40.5kV-550kV",
+    current: "630A-8000A",
+    description: "Oil-oil capacitive bushing for transformer internal connections and special replacement projects.",
+    tags: ["Transformer", "Oil-Oil", "Replacement"],
+    image: "product-oil-oil-bushing.webp",
+    href: "/products/oil-oil-bushing/",
+  },
+  {
+    code: "High Current Series",
+    title: "High Current Transformer Bushing",
+    voltage: "24kV-40.5kV",
+    current: "12,500A-40,000A",
+    description: "High-current bushing for generator transformers, furnace transformers and heavy industrial equipment.",
+    tags: ["Transformer", "High Current", "Industrial"],
+    image: "product-high-current-bushing.webp",
+    href: "/products/high-current-bushing/",
+  },
+  {
+    code: "QXFGRGW",
+    title: "GIS Outlet Bushing",
+    voltage: "40.5kV-550kV",
+    current: "1000A-8000A",
+    description: "GIS outlet bushing for SF6 switchgear, substations and high-voltage power equipment interfaces.",
+    tags: ["GIS", "Substation", "SF6"],
+    image: "product-gis-bushing.webp",
+    href: "/products/gis-bushing/",
+  },
+  {
+    code: "QXFCGRGW(L)",
+    title: "Wall Bushing",
+    voltage: "24kV-550kV",
+    current: "630A-8000A",
+    description: "Wall penetration bushing for indoor-to-outdoor high-voltage transitions in power stations.",
+    tags: ["Wall", "Power Station", "Indoor-Outdoor"],
+    image: "product-wall-bushing.webp",
+    href: "/products/wall-bushing/",
+  },
+];
+
+const mountRows = [
+  ["12", "0 / 150 / 250 / 400", "Distribution transformers and compact substations"],
+  ["24", "0 / 150 / 250 / 400", "Medium-voltage transformer outlets and indoor equipment"],
+  ["40.5", "0 / 150 / 250 / 400", "Transformer, wall and industrial power equipment"],
+  ["72.5", "0 / 250 / 400 / 550", "Substation transformers and GIS transition projects"],
+  ["126-170", "250 / 400 / 550", "High-voltage grid transformers and replacement projects"],
+  ["252-550", "200 / 400 / 500 / 700", "EHV substations, rail power and critical grid nodes"],
+];
+
+const advantages = [
+  { icon: "fire", title: "Fire-safe", text: "No oil, no explosion risk" },
+  { icon: "tool", title: "Maintenance-free", text: "Zero field maintenance" },
+  { icon: "scale", title: "Lightweight", text: "30-50% lighter than porcelain" },
+  { icon: "angle", title: "Any Angle", text: "Horizontal, vertical, or tilted installation" },
+  { icon: "leaf", title: "Eco-friendly", text: "No SF6, no oil leakage" },
+];
+---
+
+<BaseLayout title={`Products | ${company.name}`}>
+  <main>
+    <PageHero
+      eyebrow="Product Center"
+      title="High Voltage Bushing Products | 12kV-550kV"
+      text="RIP/RIF dry-type capacitive bushings for transformers, GIS, wall and oil-SF6 applications. IEC 60137 &amp; GB/T 4109 certified."
+    />
+
+    <section class="trust-row" aria-label="Product trust signals">
+      {trustStats.map((item) => (
+        <article>
+          <div>
+            <strong>{item.value}</strong>
+            <p>{item.label}</p>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Product range</p>
+        <h2>Dry-type bushing models for transformer, GIS and wall applications</h2>
+        <p>
+          Select by voltage, current, insulation interface and mounting drawing. For replacement projects,
+          send drawings or photos and we will verify the matching model before quotation.
+        </p>
+        <a class="button primary orange" href="/contact/">Get Recommendation →</a>
+      </div>
+      <div class="product-grid large">
+        {products.map((item) => (
+          <article class="product-card flat">
+            <div>
+              <picture>
+                <source srcset={`/assets/${item.image}`} type="image/webp" />
+                <img
+                  src={`/assets/${item.image.replace('.webp', '.png')}`}
+                  alt={`${item.title} — ${company.shortName}`}
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                />
+              </picture>
+              <span>{item.code}</span>
+              <h3>{item.title}</h3>
+              <strong>{item.voltage} | {item.current || "Contact for specs"}</strong>
+              <p>{item.description}</p>
+              <div class="tag-list">
+                {item.tags.map((tag) => <span>{tag}</span>)}
+              </div>
+              <a class="button primary orange" href={item.href}>View Details →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section split">
+      <div class="image-frame">
+        <img src="/assets/product-structure-table.jpg" alt="High voltage bushing product structure table" />
+      </div>
+      <div>
+        <p class="eyebrow">Technical specifications</p>
+        <h2>Voltage class, CT mounting and typical application reference</h2>
+        <p>
+          Use the table below as an early selection reference. Final dimensions, creepage distance
+          and conductor configuration should be confirmed against the transformer or GIS drawing.
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Rated Voltage (kV)</th>
+              <th>CT Mounting (mm)</th>
+              <th>Typical Application</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mountRows.map((row) => (
+              <tr>
+                <td>{row[0]}</td>
+                <td>{row[1]}</td>
+                <td>{row[2]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Why dry-type bushings</p>
+        <h2>Technical advantages for modern power projects</h2>
+      </div>
+      <div class="advantage-grid">
+        {advantages.map((item) => (
+          <article>
+            <span class={`line-icon ${item.icon}`} aria-hidden="true"></span>
+            <strong>{item.title}</strong>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="final-inquiry" id="inquiry">
+      <div class="section-heading center">
+        <p class="eyebrow">Model selection support</p>
+        <h2>Need help selecting a bushing model?</h2>
+        <p>Send your voltage, current and application — Mark Yan will reply with a recommendation within 24 hours.</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <strong>{company.contact.person}</strong>
+          <span>{company.contact.title}</span>
+          <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">{company.contact.phone} (WhatsApp)</a>
+          <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
+        </div>
+      </div>
+      <form class="inquiry-line" data-product-inquiry-form>
+        <input type="email" placeholder="Your Email *" required />
+        <input type="text" placeholder="Tell us your voltage, current and application" />
+        <button class="button primary orange" type="submit">Get Recommendation →</button>
+      </form>
+      <p class="inquiry-success" data-product-inquiry-success hidden>Thank you! We'll respond within 24 hours.</p>
+    </section>
+
+    <script>
+      const productInquiryForm = document.querySelector("[data-product-inquiry-form]");
+      const productInquirySuccess = document.querySelector("[data-product-inquiry-success]");
+      if (productInquiryForm && productInquirySuccess) {
+        productInquiryForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          productInquirySuccess.hidden = false;
+          productInquiryForm.reset();
+        });
+      }
+    </script>
+    <style is:global>
+      .page-hero {
+        min-height: 180px !important;
+      }
+
+      .page-hero h1 {
+        font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
+      }
+
+      .trust-row {
+        margin-top: -24px;
+      }
+
+      .section:first-of-type {
+        padding-top: clamp(28px, 4vw, 48px);
+      }
+    </style>
+    <style>
+      .product-card picture {
+        display: block;
+        margin-bottom: 1rem;
+      }
+
+      .product-card picture img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    </style>
+  </main>
+</BaseLayout>

@@ -1,0 +1,217 @@
+---
+import PageHero from "../components/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { company, qualityTests } from "../data/site.js";
+
+const trustStats = [
+  { value: "50,000+", label: "Bushings Delivered" },
+  { value: "12+", label: "Years Manufacturing" },
+  { value: "75%", label: "Railway Market Share" },
+  { value: "60+", label: "Export Countries" },
+];
+
+const factoryHighlights = [
+  { dt: "Founded", dd: "2013" },
+  { dt: "Location", dd: "Gaomi, Shandong, China" },
+  { dt: "Facility", dd: "9,950 m²" },
+  { dt: "Employees", dd: "100+" },
+  { dt: "Annual Capacity", dd: "RMB 300M" },
+  { dt: "Core Technology", dd: "RIP / RIF Dry-type" },
+  { dt: "Voltage Range", dd: "12kV – 550kV" },
+  { dt: "Current Range", dd: "5A – 40,000A" },
+  { dt: "Standards", dd: "IEC 60137, GB/T 4109, DL/T 1001" },
+];
+
+const labEquipment = [
+  "1,000kV power frequency withstand voltage test system",
+  "2,400kV lightning impulse withstand voltage test system",
+  "600kV zero partial discharge test system",
+  "Zero-loss high-voltage standard capacitor",
+  "Intelligent PD and dielectric loss measurement system",
+  "Fully shielded hexahedral lab — PD background < 3pC",
+];
+
+const advantages = [
+  { icon: "fire", title: "Fire-safe", text: "No oil, no combustion, no explosion risk" },
+  { icon: "tool", title: "Maintenance-free", text: "Solid insulation, no fillers, no leakage" },
+  { icon: "scale", title: "Lightweight", text: "30–50% lighter than porcelain, easy transport" },
+  { icon: "angle", title: "Any-angle install", text: "Horizontal, vertical or tilted mounting" },
+  { icon: "leaf", title: "Eco-friendly", text: "No SF₆, no oil leakage, clean lifecycle" },
+  { icon: "shield", title: "Seismic resistant", text: "Advanced layup, high bending strength" },
+  { icon: "droplet", title: "Anti-pollution", text: "Silicone housing, self-cleaning, coastal-ready" },
+  { icon: "thermometer", title: "Wide temperature", text: "Extreme cold to high-temperature operation" },
+];
+
+const certifications = [
+  "ISO 9001", "ISO 14001", "ISO 45001", "CE",
+  "IEC 60137-2017", "GB/T 4109-2022", "DL/T 1001-2024",
+];
+
+const customers = [
+  "TBEA", "XD Electric", "Baoding Tianwei Baobian", "Pinggao Group",
+  "Yunnan Transformer", "Sieyuan Electric", "Chint Group", "ABB", "Siemens",
+];
+
+const applications = [
+  { title: "Power Transformers", text: "Bushings for oil-immersed power transformers from 12kV to 550kV in utility substations and industrial plants." },
+  { title: "GIS Connections", text: "Oil-SF₆ and GIS bushings for compact switchgear interfaces and transformer-to-GIS transitions." },
+  { title: "Wall Penetration", text: "FRP capacitive wall bushings for indoor-to-outdoor high-voltage transitions in power stations." },
+  { title: "Replacement Projects", text: "Drawing-based and sample-based retrofit support for aging transformer fleets worldwide." },
+];
+---
+
+<BaseLayout title={`About | ${company.name}`}>
+  <main>
+    <PageHero
+      eyebrow="About us"
+      title="Dry-type Bushing Manufacturer | 550kV Testing Capability"
+      text="Founded 2013, 50,000+ installations, ISO-certified factory with in-house 550kV EHV testing laboratory. Co-drafter of DL/T 1001-2024."
+      image="/assets/factory-testing-line.jpg"
+    />
+
+    <section class="trust-row" aria-label="Factory trust numbers">
+      {trustStats.map((item) => (
+        <article>
+          <div>
+            <strong>{item.value}</strong>
+            <p>{item.label}</p>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Company profile</p>
+        <h2>National high-tech enterprise specializing in RIP/RIF dry-type capacitive bushings</h2>
+        <p>
+          {company.name} was founded in 2013 in Gaomi City, Shandong Province. As a national
+          high-tech enterprise integrating R&amp;D, production and sales, we are committed to providing
+          high-quality, safe and environmentally friendly dry-type capacitive bushing solutions for the
+          global power and energy industry.
+        </p>
+        <p>
+          We manufacture Resin Impregnated Paper (RIP) and Resin Impregnated Fiber (RIF) bushings
+          covering Oil-Air, Oil-SF₆, Oil-Oil, High-Current, GIS and Wall Bushing types.
+          With over 50,000 bushings delivered — including 4,917 units for railway projects holding
+          75% of China's railway market share — our products serve State Grid, China Southern Power
+          Grid, and major energy groups across 60+ export countries.
+        </p>
+        <p>
+          As co-drafter of the DL/T 1001-2024 power industry standard, Qixing combines manufacturing
+          expertise with standards-level technical knowledge. Every bushing is type-tested in our
+          in-house 550kV EHV laboratory and shipped with full inspection documentation.
+        </p>
+      </div>
+      <div class="spec-panel">
+        <h3>Factory highlights</h3>
+        <dl>
+          {factoryHighlights.map((item) => (
+            <div>
+              <dt>{item.dt}</dt>
+              <dd>{item.dd}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section class="section dark-section">
+      <div class="section-heading compact">
+        <p class="eyebrow">Testing &amp; manufacturing</p>
+        <h2>550kV EHV testing laboratory with fully shielded design</h2>
+      </div>
+      <div class="split dark-split">
+        <div class="image-frame">
+          <img src="/assets/inspection-reports.jpg" alt="Inspection reports and certificates" />
+        </div>
+        <div>
+          <p class="light-text">
+            Our in-house 550kV extra-high-voltage testing laboratory features a fully shielded
+            hexahedral design with partial discharge background levels below 3pC — ensuring
+            every bushing undergoes rigorous type-test verification before delivery.
+            The facility is equipped for power frequency, lightning impulse and partial discharge
+            testing up to the highest voltage classes we manufacture.
+          </p>
+          <ul class="check-list light">
+            {labEquipment.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Why dry-type</p>
+        <h2>Safer, cleaner and more flexible than oil-paper bushings</h2>
+      </div>
+      <div class="advantage-grid">
+        {advantages.map((item) => (
+          <article>
+            <span class={`line-icon ${item.icon}`} aria-hidden="true"></span>
+            <strong>{item.title}</strong>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading center">
+        <p class="eyebrow">Certifications &amp; standards</p>
+        <h2>ISO certified, IEC &amp; GB/T compliant</h2>
+      </div>
+      <div class="badge-row">
+        {certifications.map((item) => <span>{item}</span>)}
+      </div>
+      <div class="customer-row">
+        {customers.map((item) => <span>{item}</span>)}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading center">
+        <p class="eyebrow">Global reach</p>
+        <h2>Trusted by power grids, railways and energy projects in 60+ countries</h2>
+        <p>
+          From the China-Laos Railway and Lhasa-Nyingchi high-altitude line to State Grid 500kV
+          substations and utility-scale solar projects, Qixing bushings are proven in demanding
+          environments. Key railway references include Chengdu-Chongqing HSR, Changsha-Kunming HSR
+          and Zhengzhou-Fuyang Railway. Our products also serve Huadian, Huaneng, SPIC, CHN Energy,
+          Datang and other major energy groups.
+        </p>
+      </div>
+      <div class="case-grid">
+        {applications.map((item, index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-panel">
+      <div>
+        <p class="eyebrow">Engineering support</p>
+        <h2>Talk to Mark Yan about your project requirements</h2>
+        <p>Send your voltage, current and application — get a technical recommendation within 24 hours.</p>
+        <div class="contact-card">
+          <div class="contact-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <strong>{company.contact.person}</strong>
+            <span>{company.contact.title}</span>
+            <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">{company.contact.phone} (WhatsApp)</a>
+            <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
+          </div>
+        </div>
+      </div>
+      <a class="button primary orange" href="/contact/">Contact Mark Yan →</a>
+    </section>
+  </main>
+</BaseLayout>
