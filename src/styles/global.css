@@ -109,7 +109,7 @@ h3 {
 }
 
 .brand-logo {
-  width: 230px;
+  width: 260px;
   height: auto;
 }
 
@@ -739,8 +739,8 @@ main > .page-hero + .trust-row + .section {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(26, 58, 92, 0.82), rgba(16, 38, 61, 0.88)),
-    rgba(0, 0, 0, 0.3);
+    linear-gradient(180deg, rgba(26, 58, 92, 0.55), rgba(16, 38, 61, 0.62)),
+    rgba(0, 0, 0, 0.12);
 }
 
 .conversion-hero-content {
@@ -1436,9 +1436,10 @@ main > .page-hero + .trust-row + .section {
 .contact-visual-card {
   position: relative;
   min-height: 620px;
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(16, 38, 61, 0.08);
+  background: transparent;
+  box-shadow: none;
 }
 
 .contact-visual-card img {
@@ -1448,7 +1449,6 @@ main > .page-hero + .trust-row + .section {
   min-height: inherit;
   object-fit: cover;
   object-position: center top;
-  mix-blend-mode: multiply;
 }
 
 .contact-visual-gradient {
@@ -1777,7 +1777,7 @@ main > .page-hero + .trust-row + .section {
   }
 
   .brand-logo {
-    width: 158px;
+    width: 170px;
   }
 
   .hero {
