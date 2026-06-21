@@ -3,6 +3,13 @@ import PageHero from "../components/PageHero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { company } from "../data/site.js";
 
+const trustStats = [
+  { value: "50000+", label: "Installations" },
+  { value: "550kV Lab", label: "Testing" },
+  { value: "ISO 9001", label: "Certified" },
+  { value: "30+", label: "Reports" },
+];
+
 const reportGroups = [
   {
     title: "550kV Class",
@@ -53,6 +60,17 @@ const requestLink = (report) =>
       text="Download third-party type test reports for RIP/RIF bushings from 12kV to 550kV. All reports issued by accredited testing laboratories."
       image="/assets/inspection-reports.jpg"
     />
+
+    <section class="trust-row" aria-label="Downloads trust signals">
+      {trustStats.map((item) => (
+        <article>
+          <div>
+            <strong>{item.value}</strong>
+            <p>{item.label}</p>
+          </div>
+        </article>
+      ))}
+    </section>
 
     <section class="section">
       <div class="section-heading">

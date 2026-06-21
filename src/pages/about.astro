@@ -1,7 +1,7 @@
 ---
 import PageHero from "../components/PageHero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { company, qualityTests } from "../data/site.js";
+import { company } from "../data/site.js";
 
 const trustStats = [
   { value: "50,000+", label: "Bushings Delivered" },
@@ -13,12 +13,12 @@ const trustStats = [
 const factoryHighlights = [
   { dt: "Founded", dd: "2013" },
   { dt: "Location", dd: "Gaomi, Shandong, China" },
-  { dt: "Facility", dd: "9,950 m²" },
+  { dt: "Facility", dd: "9,950 m2" },
   { dt: "Employees", dd: "100+" },
   { dt: "Annual Capacity", dd: "RMB 300M" },
   { dt: "Core Technology", dd: "RIP / RIF Dry-type" },
-  { dt: "Voltage Range", dd: "12kV – 550kV" },
-  { dt: "Current Range", dd: "5A – 40,000A" },
+  { dt: "Voltage Range", dd: "12kV - 550kV" },
+  { dt: "Current Range", dd: "5A - 40,000A" },
   { dt: "Standards", dd: "IEC 60137, GB/T 4109, DL/T 1001" },
 ];
 
@@ -28,35 +28,127 @@ const labEquipment = [
   "600kV zero partial discharge test system",
   "Zero-loss high-voltage standard capacitor",
   "Intelligent PD and dielectric loss measurement system",
-  "Fully shielded hexahedral lab — PD background < 3pC",
-];
-
-const advantages = [
-  { icon: "fire", title: "Fire-safe", text: "No oil, no combustion, no explosion risk" },
-  { icon: "tool", title: "Maintenance-free", text: "Solid insulation, no fillers, no leakage" },
-  { icon: "scale", title: "Lightweight", text: "30–50% lighter than porcelain, easy transport" },
-  { icon: "angle", title: "Any-angle install", text: "Horizontal, vertical or tilted mounting" },
-  { icon: "leaf", title: "Eco-friendly", text: "No SF₆, no oil leakage, clean lifecycle" },
-  { icon: "shield", title: "Seismic resistant", text: "Advanced layup, high bending strength" },
-  { icon: "droplet", title: "Anti-pollution", text: "Silicone housing, self-cleaning, coastal-ready" },
-  { icon: "thermometer", title: "Wide temperature", text: "Extreme cold to high-temperature operation" },
+  "Fully shielded hexahedral lab - PD background < 3pC",
 ];
 
 const certifications = [
-  "ISO 9001", "ISO 14001", "ISO 45001", "CE",
-  "IEC 60137-2017", "GB/T 4109-2022", "DL/T 1001-2024",
+  "ISO 9001",
+  "ISO 14001",
+  "ISO 45001",
+  "CE",
+  "IEC 60137-2017",
+  "GB/T 4109-2022",
+  "DL/T 1001-2024",
 ];
 
 const customers = [
-  "TBEA", "XD Electric", "Baoding Tianwei Baobian", "Pinggao Group",
-  "Yunnan Transformer", "Sieyuan Electric", "Chint Group", "ABB", "Siemens",
+  "TBEA",
+  "XD Electric",
+  "Baoding Tianwei Baobian",
+  "Pinggao Group",
+  "Yunnan Transformer",
+  "Sieyuan Electric",
+  "Chint Group",
+  "ABB",
+  "Siemens",
+];
+
+const aboutMedia = {
+  rip: [
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209446911210221077704704.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209446911210223573315584.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209447911210225553027072.png",
+  ],
+  rif: [
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209447911210227729870848.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209448911210230078681088.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209448911210232683343872.png",
+  ],
+  lab: [
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209449911210235426418688.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209450911210237754257408.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209450911210241134866432.png",
+  ],
+  certifications: [
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209451911210243454316544.jpg",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209451911210245354336256.jpg",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209452911210247413739520.jpg",
+  ],
+  projects: [
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209452911210249565417472.jpg",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209453911210251926810624.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209454911210253982019584.jpg",
+  ],
+  future: [
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209454911210256397938688.png@!jw600",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209455911210259317174272.png@!jw600",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778209456911210262727143424.png@!jw600",
+  ],
+};
+
+const customerLogos = [
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382088869991294778654720.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382090869991304555577344.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382085869991284376797184.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382077869991249035591680.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382084869991278450245632.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382085869991282011193344.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382090869991302873677824.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382082869991268471980032.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382081869991266722971648.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382075869991241297084416.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382089869991300852006912.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382086869991288592056320.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382076869991247093612544.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382081869991264671940608.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382084869991280098590720.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382086869991286612344832.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382083869991274163650560.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382088869991297026818048.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382076869991245000654848.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382080869991262767726592.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382089869991298859712512.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382077869991250889457664.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382087869991292593422336.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382083869991276453740544.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382080869991260930637824.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382087869991290945077248.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382076869991243419418624.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382295869992164987695104.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382078869991255285104640.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382083869991272532082688.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382079869991257021530112.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382079869991258950909952.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382078869991252940472320.jpg@!jw600",
+  "https://hkimg.bjyyb.net/sites/98000/98001/1768382082869991270363611136.jpg@!jw600",
+];
+
+const customerLogoRows = [
+  customerLogos.slice(0, Math.ceil(customerLogos.length / 2)),
+  customerLogos.slice(Math.ceil(customerLogos.length / 2)),
 ];
 
 const applications = [
-  { title: "Power Transformers", text: "Bushings for oil-immersed power transformers from 12kV to 550kV in utility substations and industrial plants." },
-  { title: "GIS Connections", text: "Oil-SF₆ and GIS bushings for compact switchgear interfaces and transformer-to-GIS transitions." },
-  { title: "Wall Penetration", text: "FRP capacitive wall bushings for indoor-to-outdoor high-voltage transitions in power stations." },
-  { title: "Replacement Projects", text: "Drawing-based and sample-based retrofit support for aging transformer fleets worldwide." },
+  {
+    title: "Power Transformers",
+    image: aboutMedia.projects[0],
+    text: "Bushings for oil-immersed power transformers from 12kV to 550kV in utility substations and industrial plants.",
+  },
+  {
+    title: "GIS Connections",
+    image: aboutMedia.projects[1],
+    text: "Oil-SF6 and GIS bushings for compact switchgear interfaces and transformer-to-GIS transitions.",
+  },
+  {
+    title: "Wall Penetration",
+    image: aboutMedia.rif[0],
+    text: "FRP capacitive wall bushings for indoor-to-outdoor high-voltage transitions in power stations.",
+  },
+  {
+    title: "Replacement Projects",
+    image: aboutMedia.future[0],
+    text: "Drawing-based and sample-based retrofit support for aging transformer fleets worldwide.",
+  },
 ];
 ---
 
@@ -92,9 +184,9 @@ const applications = [
         </p>
         <p>
           We manufacture Resin Impregnated Paper (RIP) and Resin Impregnated Fiber (RIF) bushings
-          covering Oil-Air, Oil-SF₆, Oil-Oil, High-Current, GIS and Wall Bushing types.
-          With over 50,000 bushings delivered — including 4,917 units for railway projects holding
-          75% of China's railway market share — our products serve State Grid, China Southern Power
+          covering Oil-Air, Oil-SF6, Oil-Oil, High-Current, GIS and Wall Bushing types.
+          With over 50,000 bushings delivered, including 4,917 units for railway projects holding
+          75% of China's railway market share, our products serve State Grid, China Southern Power
           Grid, and major energy groups across 60+ export countries.
         </p>
         <p>
@@ -116,19 +208,61 @@ const applications = [
       </div>
     </section>
 
+    <section class="section split about-product-section">
+      <div>
+        <p class="eyebrow">RIP Bushing</p>
+        <h2>Resin Impregnated Paper insulation for transformer and GIS interfaces</h2>
+        <p>
+          RIP bushings use resin-impregnated paper as the main insulation system, giving stable
+          electrical performance, compact dimensions, lighter weight and maintenance-free operation
+          for high-voltage transmission and transformation equipment.
+        </p>
+      </div>
+      <div class="about-media-grid">
+        {aboutMedia.rip.map((src, index) => (
+          <figure>
+            <img src={src} alt={`RIP dry-type bushing product ${index + 1}`} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <section class="section split about-product-section alt">
+      <div class="about-media-grid">
+        {aboutMedia.rif.map((src, index) => (
+          <figure>
+            <img src={src} alt={`RIF dry-type bushing product ${index + 1}`} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      <div>
+        <p class="eyebrow">RIF Bushing</p>
+        <h2>Resin Impregnated Fiber structure for lightweight, flexible installation</h2>
+        <p>
+          RIF bushings use fiberglass as the main insulation material with resin impregnation,
+          supporting oil-free design, maintenance-free operation, any-angle installation and stable
+          electrical performance without combustion or explosion risk.
+        </p>
+      </div>
+    </section>
+
     <section class="section dark-section">
       <div class="section-heading compact">
         <p class="eyebrow">Testing &amp; manufacturing</p>
         <h2>550kV EHV testing laboratory with fully shielded design</h2>
       </div>
       <div class="split dark-split">
-        <div class="image-frame">
-          <img src="/assets/inspection-reports.jpg" alt="Inspection reports and certificates" />
+        <div class="about-media-grid lab-gallery">
+          {aboutMedia.lab.map((src, index) => (
+            <figure>
+              <img src={src} alt={`550kV EHV laboratory view ${index + 1}`} loading="lazy" />
+            </figure>
+          ))}
         </div>
         <div>
           <p class="light-text">
             Our in-house 550kV extra-high-voltage testing laboratory features a fully shielded
-            hexahedral design with partial discharge background levels below 3pC — ensuring
+            hexahedral design with partial discharge background levels below 3pC, ensuring
             every bushing undergoes rigorous type-test verification before delivery.
             The facility is equipped for power frequency, lightning impulse and partial discharge
             testing up to the highest voltage classes we manufacture.
@@ -141,31 +275,61 @@ const applications = [
     </section>
 
     <section class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Why dry-type</p>
-        <h2>Safer, cleaner and more flexible than oil-paper bushings</h2>
+      <div class="section-heading center">
+        <p class="eyebrow">Certifications &amp; honors</p>
+        <h2>ISO certified, IEC &amp; GB/T compliant</h2>
       </div>
-      <div class="advantage-grid">
-        {advantages.map((item) => (
-          <article>
-            <span class={`line-icon ${item.icon}`} aria-hidden="true"></span>
-            <strong>{item.title}</strong>
-            <p>{item.text}</p>
-          </article>
+      <div class="about-media-grid certificate-gallery">
+        {aboutMedia.certifications.map((src, index) => (
+          <figure>
+            <img src={src} alt={`Qixing certification and honor ${index + 1}`} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      <div class="badge-row">
+        {certifications.map((item) => <span>{item}</span>)}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading center">
+        <p class="eyebrow">Key projects</p>
+        <h2>Proven in railways, substations and energy infrastructure</h2>
+        <p>
+          Products are widely used in key railway, grid and energy projects including
+          Lhasa-Nyingchi Railway, Chengdu-Chongqing High-Speed Railway, Changsha-Kunming
+          High-Speed Railway, Zhengzhou-Fuyang Railway and utility-scale solar projects.
+        </p>
+      </div>
+      <div class="about-media-grid project-gallery">
+        {aboutMedia.projects.map((src, index) => (
+          <figure>
+            <img src={src} alt={`Qixing reference project site ${index + 1}`} loading="lazy" />
+          </figure>
         ))}
       </div>
     </section>
 
     <section class="section">
       <div class="section-heading center">
-        <p class="eyebrow">Certifications &amp; standards</p>
-        <h2>ISO certified, IEC &amp; GB/T compliant</h2>
-      </div>
-      <div class="badge-row">
-        {certifications.map((item) => <span>{item}</span>)}
+        <p class="eyebrow">Major customers</p>
+        <h2>Trusted by industry leaders</h2>
       </div>
       <div class="customer-row">
         {customers.map((item) => <span>{item}</span>)}
+      </div>
+      <div class="client-logo-marquee about-client-marquee" aria-label="Major customer logos">
+        {customerLogoRows.map((row, rowIndex) => (
+          <div class="client-row">
+            <div class={`client-track ${rowIndex === 1 ? "reverse" : ""}`}>
+              {[...row, ...row].map((src, index) => (
+                <div class="client-logo-card">
+                  <img src={src} alt={`Major customer logo ${index + 1}`} loading="lazy" />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -176,18 +340,36 @@ const applications = [
         <p>
           From the China-Laos Railway and Lhasa-Nyingchi high-altitude line to State Grid 500kV
           substations and utility-scale solar projects, Qixing bushings are proven in demanding
-          environments. Key railway references include Chengdu-Chongqing HSR, Changsha-Kunming HSR
-          and Zhengzhou-Fuyang Railway. Our products also serve Huadian, Huaneng, SPIC, CHN Energy,
+          environments. Our products also serve Huadian, Huaneng, SPIC, CHN Energy,
           Datang and other major energy groups.
         </p>
       </div>
-      <div class="case-grid">
-        {applications.map((item, index) => (
+      <div class="case-grid media-cases">
+        {applications.map((item) => (
           <article>
-            <span>{String(index + 1).padStart(2, "0")}</span>
+            <img src={item.image} alt={`${item.title} application`} loading="lazy" />
             <h3>{item.title}</h3>
             <p>{item.text}</p>
           </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section split about-product-section">
+      <div>
+        <p class="eyebrow">Future vision</p>
+        <h2>Building a world-class brand in power insulation</h2>
+        <p>
+          Looking ahead, Qixing will continue to focus on dry-type capacitive bushing technology,
+          high-voltage insulation engineering and international project support, creating lasting
+          value for global customers and contributing to a stable, sustainable energy future.
+        </p>
+      </div>
+      <div class="about-media-grid future-gallery">
+        {aboutMedia.future.map((src, index) => (
+          <figure>
+            <img src={src} alt={`Qixing factory panorama ${index + 1}`} loading="lazy" />
+          </figure>
         ))}
       </div>
     </section>
@@ -196,7 +378,7 @@ const applications = [
       <div>
         <p class="eyebrow">Engineering support</p>
         <h2>Talk to Mark Yan about your project requirements</h2>
-        <p>Send your voltage, current and application — get a technical recommendation within 24 hours.</p>
+        <p>Send your voltage, current and application - get a technical recommendation within 24 hours.</p>
         <div class="contact-card">
           <div class="contact-avatar" aria-hidden="true">
             <svg viewBox="0 0 24 24">

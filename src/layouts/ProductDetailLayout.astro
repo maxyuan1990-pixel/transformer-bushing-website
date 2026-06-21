@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
 import { company } from "../data/site.js";
 
 export interface Props {
@@ -25,26 +26,22 @@ const {
 } = Astro.props;
 
 const allProducts = [
-  { name: "Oil-Air Transformer Bushing", href: "/products/oil-air-bushing/" },
-  { name: "Oil-SF6 Transformer Bushing", href: "/products/oil-sf6-bushing/" },
-  { name: "Oil-Oil Transformer Bushing", href: "/products/oil-oil-bushing/" },
-  { name: "High Current Transformer Bushing", href: "/products/high-current-bushing/" },
-  { name: "GIS Outlet Bushing", href: "/products/gis-bushing/" },
-  { name: "Wall Bushing", href: "/products/wall-bushing/" },
+  { name: "Oil-Air Transformer Bushing", href: "/products/oil-air-bushing/", img: "product-oil-air-bushing.webp" },
+  { name: "Oil-SF6 Transformer Bushing", href: "/products/oil-sf6-bushing/", img: "product-oil-sf6-bushing.webp" },
+  { name: "Oil-Oil Transformer Bushing", href: "/products/oil-oil-bushing/", img: "product-oil-oil-bushing.webp" },
+  { name: "High Current Transformer Bushing", href: "/products/high-current-bushing/", img: "product-high-current-bushing.webp" },
+  { name: "GIS Outlet Bushing", href: "/products/gis-bushing/", img: "product-gis-bushing.webp" },
+  { name: "Wall Bushing", href: "/products/wall-bushing/", img: "product-wall-bushing.webp" },
 ];
 ---
 
 <BaseLayout title={`${title} | ${company.shortName}`}>
   <main>
-    <!-- Breadcrumb + Hero -->
-    <section class="page-hero product-hero">
-      <img src="/assets/hv-bushing-transformer-yard.jpg" alt="" />
-      <div>
-        <p class="eyebrow">Products</p>
-        <h1>{title}</h1>
-        <p>{productCode} | {voltage} | {current}</p>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Products"
+      title={title}
+      text={`${productCode} | ${voltage} | ${current}`}
+    />
 
     <!-- Product Detail Section -->
     <section class="section product-detail-layout">
@@ -146,6 +143,16 @@ const allProducts = [
         {allProducts.filter(p => p.href !== Astro.url.pathname).map((p) => (
           <article class="product-card flat">
             <div>
+              <picture>
+                <source srcset={`/assets/${p.img}`} type="image/webp" />
+                <img
+                  src={`/assets/${p.img.replace('.webp', '.png')}`}
+                  alt={p.name}
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                />
+              </picture>
               <h3>{p.name}</h3>
               <a class="button secondary" href={p.href}>View Details →</a>
             </div>
@@ -197,16 +204,6 @@ const allProducts = [
 </BaseLayout>
 
 <style>
-  .product-hero {
-    min-height: 160px;
-    padding: 40px clamp(20px, 5vw, 72px) 28px;
-  }
-
-  .product-hero h1 {
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
-    margin-bottom: 0;
-  }
-
   .product-detail-layout {
     padding-top: clamp(24px, 3vw, 48px);
     padding-bottom: clamp(40px, 5vw, 80px);

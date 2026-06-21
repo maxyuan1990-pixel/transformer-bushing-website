@@ -3,9 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { company } from "../data/site.js";
 
 const trustStats = [
-  { icon: "factory", value: "50,000+", label: "Bushings Delivered" },
-  { icon: "calendar", value: "12", label: "Years of Manufacturing Excellence" },
-  { icon: "rail", value: "75%", label: "Railway Market Share in China" },
+  { icon: "calendar", value: "13+", label: "Industry Experiences" },
+  { icon: "factory", value: "10000㎡", label: "Factory Areas(m²)" },
+  { icon: "case", value: "30000+", label: "Installation Case" },
+  { icon: "team", value: "100+", label: "Company Employees" },
+  { icon: "satisfaction", value: "99%", label: "Customer Satisfaction" },
 ];
 
 const advantages = [
@@ -17,12 +19,42 @@ const advantages = [
 ];
 
 const products = [
-  ["Oil-Air Transformer Bushing", "12kV-550kV / 1A-8000A"],
-  ["Oil-SF6 Transformer Bushing", "40.5kV-550kV / 630A-8000A"],
-  ["Oil-Oil Transformer Bushing", "40.5kV-550kV / 630A-8000A"],
-  ["High Current Transformer Bushing", "24kV-40.5kV / 12,500A-40,000A"],
-  ["GIS Outlet Bushing", "40.5kV-550kV / 1000A-8000A"],
-  ["Wall Bushing", "24kV-550kV / 630A-8000A"],
+  {
+    name: "Oil-Air Transformer Bushing",
+    range: "12kV-550kV / 1A-8000A",
+    img: "product-oil-air-bushing.webp",
+    href: "/products/oil-air-bushing/",
+  },
+  {
+    name: "Oil-SF6 Transformer Bushing",
+    range: "40.5kV-550kV / 630A-8000A",
+    img: "product-oil-sf6-bushing.webp",
+    href: "/products/oil-sf6-bushing/",
+  },
+  {
+    name: "Oil-Oil Transformer Bushing",
+    range: "40.5kV-550kV / 630A-8000A",
+    img: "product-oil-oil-bushing.webp",
+    href: "/products/oil-oil-bushing/",
+  },
+  {
+    name: "High Current Transformer Bushing",
+    range: "24kV-40.5kV / 12,500A-40,000A",
+    img: "product-high-current-bushing.webp",
+    href: "/products/high-current-bushing/",
+  },
+  {
+    name: "GIS Outlet Bushing",
+    range: "40.5kV-550kV / 1000A-8000A",
+    img: "product-gis-bushing.webp",
+    href: "/products/gis-bushing/",
+  },
+  {
+    name: "Wall Bushing",
+    range: "24kV-550kV / 630A-8000A",
+    img: "product-wall-bushing.webp",
+    href: "/products/wall-bushing/",
+  },
 ];
 
 const cases = [
@@ -31,23 +63,69 @@ const cases = [
     country: "Tibet, China",
     model: "220kV Transformer Bushing",
     result: "Reliable dry-type insulation performance for high-altitude railway power infrastructure.",
+    img: "220kV-Bushing-in-Operation-on-the-Lhasa-Nyingchi-Railway-1.jpg",
+    slug: "lhasa-nyingchi-railway",
   },
   {
     name: "Sichuan Batang 500kV Substation",
     country: "State Grid",
     model: "252kV Bushing",
     result: "Applied in a critical 500kV grid node requiring stable transformer operation.",
+    img: "252kV-Transformer-Bushing-in-Operation-at-Sichuan-Batang-Substation-China-State-Grid-Project-1.png",
+    slug: "sichuan-batang-substation",
   },
   {
     name: "Gansu 500MW Solar + Storage Project",
     country: "Longyuan Power",
     model: "330kV Bushing",
     result: "Supported renewable energy transmission with high-voltage bushing equipment.",
+    img: "330kV-Transformer-Bushing-for-Gansu-Longyuan-500MW-Photovoltaic-Desert-Control-Project-1.jpg",
+    slug: "gansu-longyuan-solar-storage",
   },
 ];
 
 const certifications = ["ISO 9001", "ISO 14001", "ISO 45001", "CE", "IEC 60137", "DL/T 1001"];
 const customers = ["TBEA", "XD Electric", "Baoding Tianwei Baobian", "Pinggao Group", "Yunnan Transformer"];
+const clientLogoRows = [
+  [
+    "ABB-Logo.jpg",
+    "Baiyun-Power-Group-Logo.jpg",
+    "CECEP-Logo.jpg",
+    "CEEG-Logo.jpg",
+    "CGN-Logo.jpg",
+    "CHALCO-Logo.jpg",
+    "CHN-Energy-Logo.jpg",
+    "CR-Power-Logo.jpg",
+    "CYB-Logo.jpg",
+    "China-Datang-Logo.jpg",
+    "China-Electrical-Equipment-Group-Logo.jpg",
+    "China-Huadian-Logo.jpg",
+    "China-Huaneng-Group-Logo.jpg",
+    "China-Railway-Logo.jpg",
+    "China-Southern-Power-Grid-Logo.jpg",
+    "Chint-Logo.jpg",
+    "Inner-Mongolia-Electric-Power-Logo.jpg",
+  ],
+  [
+    "Jiangsu-Huapeng-Transformer-Logo.jpg",
+    "Norinco-Group-Logo.jpg",
+    "PetroChina-Logo.jpg",
+    "Pinggao-Group-Logo.jpg",
+    "Siemens-Logo.jpg",
+    "Sieyuan-Electric-Logo.jpg",
+    "Sinopec-Logo.jpg",
+    "SPIC-Logo.jpg",
+    "State-Grid-Logo.jpg",
+    "Taikai-Group-Logo.jpg",
+    "Taishan-Logo.jpg",
+    "TBEA-Logo.jpg",
+    "Tianwei-Group-Logo.jpg",
+    "Xian-XD-Power-Systems-Logo.jpg",
+    "Xuji-Group-Logo.jpg",
+    "Yawei-Logo.jpg",
+    "Yunnan-Transformer-Logo.jpg",
+  ],
+];
 const factoryStats = [
   "9,950 m2 Manufacturing Facility",
   "100+ Skilled Employees",
@@ -65,9 +143,11 @@ const factoryStats = [
       <img src="/assets/hv-bushing-transformer-yard.jpg" alt="" />
       <div class="hero-shade"></div>
       <div class="conversion-hero-content">
-        <h1>Dry-type Bushing Specialist | 50,000+ Global Installations</h1>
-        <p>
-          RIP/RIF Capacitive Bushings - 12kV to 550kV - IEC 60137 &amp; GB/T 4109 Certified
+        <h1>Bushing Manufacturer<br />Dry-type RIP/RIF 12–550kV</h1>
+        <p class="hero-trust-lines">
+          <span>&bull; 50000+ Global Installations</span>
+          <span>&bull; ISO 9001/ 14001/ 45001 Certified &bull; CE Compliant</span>
+          <span>&bull; Compliant with IEC 60137-2017 &amp; GB/T 4109-2022</span>
         </p>
         <div class="hero-actions">
           <a class="button primary orange hero-primary" href="#inquiry">Request a Quote →</a>
@@ -89,7 +169,7 @@ const factoryStats = [
       </form>
     </div>
 
-    <section class="trust-row" aria-label="Factory trust numbers">
+    <section class="trust-row home-trust-row" aria-label="Factory trust numbers">
       {trustStats.map((item) => (
         <article>
           <span class={`line-icon ${item.icon}`} aria-hidden="true"></span>
@@ -101,43 +181,26 @@ const factoryStats = [
       ))}
     </section>
 
-    <section class="section tech-choice">
-      <div>
-        <p class="eyebrow">Why dry-type bushings</p>
-        <h2>Safer insulation for modern transformer and grid equipment</h2>
-        <p>
-          RIP/RIF dry-type capacitive bushings replace oil-paper and porcelain-heavy designs with a
-          compact solid insulation system. With no internal oil or SF6, the structure reduces fire,
-          explosion and leakage risk while improving installation flexibility. The lighter body helps
-          transformer OEMs simplify handling, transport and site assembly. For utilities and EPC
-          projects, dry-type bushings provide cleaner lifecycle performance, lower maintenance burden
-          and stable operation in horizontal, vertical or tilted mounting positions.
-        </p>
-        <a class="button primary orange" href="/products/">See Technical Comparison →</a>
-      </div>
-      <div class="advantage-grid">
-        {advantages.map((item) => (
-          <article>
-            <span class={`line-icon ${item.icon}`} aria-hidden="true"></span>
-            <strong>{item.title}</strong>
-            <p>{item.text}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-
     <section class="section product-range">
       <div class="section-heading center">
-        <p class="eyebrow">Product Center</p>
         <h2>Our Product Range</h2>
       </div>
       <div class="conversion-product-grid">
-        {products.map(([name, range], index) => (
+        {products.map((item) => (
           <article>
-            <span class="product-icon" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-            <h3>{name}</h3>
-            <p>{range}</p>
-            <a href="/products/">View Details →</a>
+            <picture class="product-icon-img">
+              <source srcset={`/assets/${item.img}`} type="image/webp" />
+              <img
+                src={`/assets/${item.img.replace('.webp', '.png')}`}
+                alt={item.name}
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+            </picture>
+            <h3>{item.name}</h3>
+            <p>{item.range}</p>
+            <a href={item.href}>View Details →</a>
           </article>
         ))}
       </div>
@@ -145,20 +208,21 @@ const factoryStats = [
 
     <section class="section cases-preview">
       <div class="section-heading center">
-        <p class="eyebrow">Reference Projects</p>
         <h2>Proven in Critical Projects</h2>
       </div>
       <div class="project-grid">
         {cases.map((item) => (
-          <article>
-            <img src="/assets/application-transformer-sites.jpg" alt="" />
-            <div>
-              <h3>{item.name}</h3>
-              <span>{item.country}</span>
-              <strong>{item.model}</strong>
-              <p>{item.result}</p>
-            </div>
-          </article>
+          <a href={`/applications/${item.slug}/`} class="project-card-link">
+            <article>
+              <img src={`/assets/projects/${item.img}`} alt={item.name} />
+              <div>
+                <h3>{item.name}</h3>
+                <span>{item.country}</span>
+                <strong>{item.model}</strong>
+                <p>{item.result}</p>
+              </div>
+            </article>
+          </a>
         ))}
       </div>
       <a class="text-link" href="/applications/">View All Reference Projects →</a>
@@ -166,14 +230,26 @@ const factoryStats = [
 
     <section class="section trusted">
       <div class="section-heading center">
-        <p class="eyebrow">Certifications and customers</p>
         <h2>Trusted By Industry Leaders</h2>
       </div>
-      <div class="badge-row">
-        {certifications.map((item) => <span>{item}</span>)}
-      </div>
-      <div class="customer-row">
-        {customers.map((item) => <span>{item}</span>)}
+      <div class="client-logo-marquee" aria-label="Client logos">
+        {clientLogoRows.map((row, rowIndex) => (
+          <div class="client-row">
+            <div class:list={["client-track", { reverse: rowIndex === 1 }]}>
+              {[...row, ...row].map((logo) => (
+                <div class="client-logo-card">
+                  <img
+                    src={`/assets/clients/${logo}`}
+                    alt={logo.replace("-Logo.jpg", "").replaceAll("-", " ")}
+                    loading="lazy"
+                    width="180"
+                    height="72"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -184,7 +260,6 @@ const factoryStats = [
         <img src="/assets/product-structure-table.jpg" alt="Product structure and technical table" />
       </div>
       <div>
-        <p class="eyebrow">Factory overview</p>
         <h2>Manufacturing capability for large-scale power projects</h2>
         <div class="factory-stat-list">
           {factoryStats.map((item) => <strong>{item}</strong>)}
@@ -195,7 +270,6 @@ const factoryStats = [
 
     <section class="final-inquiry" id="inquiry">
       <div class="section-heading center">
-        <p class="eyebrow">Fast engineering response</p>
         <h2>Get Your Bushing Solution</h2>
         <p>Tell us your voltage, current, and application - we'll respond within 24 hours.</p>
       </div>
@@ -252,5 +326,27 @@ const factoryStats = [
         });
       }
     </script>
+    <style>
+      .tech-visual {
+        align-self: stretch;
+        min-height: 420px;
+        display: grid;
+        place-items: center;
+        padding: clamp(18px, 3vw, 34px);
+      }
+
+      .tech-visual img {
+        width: 100%;
+        height: 100%;
+        max-height: 520px;
+        object-fit: contain;
+      }
+
+      @media (max-width: 980px) {
+        .tech-visual {
+          min-height: 300px;
+        }
+      }
+    </style>
   </main>
 </BaseLayout>

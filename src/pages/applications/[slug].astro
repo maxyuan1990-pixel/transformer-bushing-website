@@ -1,0 +1,216 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import { allProjects } from "../../data/projects.js";
+import { company } from "../../data/site.js";
+
+export function getStaticPaths() {
+  return allProjects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={`${project.title} | Reference Projects | ${company.name}`}>
+  <main>
+    <PageHero
+      eyebrow="Reference Projects"
+      title={project.title}
+      text={`${project.products} | Commissioned ${project.date}`}
+      image={`/assets/projects/${project.images[0]}`}
+    />
+
+    <section class="section project-detail">
+      <a class="back-link" href="/applications/">← Back to Reference Projects</a>
+
+      <div class="project-detail-header" hidden>
+        <p class="eyebrow">{project.tag} · Commissioned {project.date}</p>
+        <h1>{project.title}</h1>
+      </div>
+
+      <div class="project-detail-body">
+        <div class="project-meta-panel">
+          <dl>
+            <div>
+              <dt>Customer</dt>
+              <dd>{project.customer}</dd>
+            </div>
+            <div>
+              <dt>Project</dt>
+              <dd>{project.project}</dd>
+            </div>
+            <div>
+              <dt>Products</dt>
+              <dd>{project.products}</dd>
+            </div>
+            <div>
+              <dt>Commissioned</dt>
+              <dd>{project.date}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="project-note">
+          <p>{project.note}</p>
+        </div>
+
+        <div class="project-gallery">
+          <h2>Project Gallery</h2>
+          <div class="gallery-grid">
+            {project.images.map((img, i) => (
+              <figure>
+                <img
+                  src={`/assets/projects/${img}`}
+                  alt={`${project.title} — Image ${i + 1}`}
+                  loading="lazy"
+                />
+              </figure>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-panel">
+        <div>
+          <p class="eyebrow">Similar project?</p>
+          <h2>Have a project like this one?</h2>
+          <p>Share your specifications and get a reference case matched to your requirements.</p>
+          <div class="contact-card">
+            <div class="contact-avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <strong>{company.contact.person}</strong>
+              <span>{company.contact.title}</span>
+              <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">{company.contact.phone} (WhatsApp)</a>
+              <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
+            </div>
+          </div>
+        </div>
+        <a class="button primary orange" href="/contact/">Send Project Specs →</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .project-detail-body {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .project-meta-panel {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  .project-meta-panel dl > div {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e9ecef;
+  }
+  .project-meta-panel dl > div:last-child {
+    border-bottom: none;
+  }
+  .project-meta-panel dt {
+    font-weight: 600;
+    min-width: 130px;
+    color: #555;
+  }
+  .project-meta-panel dd {
+    margin: 0;
+  }
+
+  .project-note {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .project-gallery h2 {
+    margin-bottom: 1rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .gallery-grid figure {
+    margin: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+  }
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .cta-panel {
+    margin-top: 3rem;
+    background: linear-gradient(135deg, #1a3a5c, #0d2137);
+    color: #fff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .cta-panel h2 {
+    color: #fff;
+    margin-top: 0.5rem;
+  }
+  .cta-panel .eyebrow {
+    color: #f90;
+  }
+  .cta-panel .contact-card {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .cta-panel .contact-avatar {
+    width: 48px;
+    height: 48px;
+    background: #f90;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .cta-panel .contact-avatar svg {
+    width: 28px;
+    height: 28px;
+  }
+  .cta-panel .contact-card a {
+    display: block;
+    color: #aad4f0;
+    font-size: 0.9rem;
+  }
+  .cta-panel .button {
+    flex-shrink: 0;
+  }
+</style>

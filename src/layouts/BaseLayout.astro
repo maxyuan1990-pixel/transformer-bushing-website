@@ -67,8 +67,36 @@ const layoutNavItems = [
             )
           ))}
         </div>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+          <span></span><span></span><span></span>
+        </button>
         <a class="nav-cta" href="/products/">View Products</a>
       </nav>
+      <div class="mobile-nav" data-mobile-nav inert>
+        <div class="mobile-nav-header">
+          <strong>Menu</strong>
+          <button class="mobile-nav-close" aria-label="Close menu" data-menu-close>&times;</button>
+        </div>
+        <nav class="mobile-nav-links">
+          <a href="/">Home</a>
+          <div class="mobile-accordion">
+            <button class="mobile-accordion-trigger" data-accordion-trigger>Products ▾</button>
+            <div class="mobile-accordion-panel">
+              <a href="/products/">All Products</a>
+              <a href="/products/oil-air-bushing/">Oil-Air Transformer Bushing</a>
+              <a href="/products/oil-sf6-bushing/">Oil-SF6 Transformer Bushing</a>
+              <a href="/products/oil-oil-bushing/">Oil-Oil Transformer Bushing</a>
+              <a href="/products/high-current-bushing/">High Current Transformer Bushing</a>
+              <a href="/products/gis-bushing/">GIS Outlet Bushing</a>
+              <a href="/products/wall-bushing/">Wall Bushing</a>
+            </div>
+          </div>
+          <a href="/applications/">Reference Projects</a>
+          <a href="/downloads/">Downloads</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </div>
     </header>
     <slot />
     <footer class="footer">
@@ -90,5 +118,41 @@ const layoutNavItems = [
         <span>Address: {company.contact.address}</span>
       </address>
     </footer>
+    <script>
+      const toggle = document.querySelector("[data-menu-toggle]");
+      const drawer = document.querySelector("[data-mobile-nav]");
+      const close = document.querySelector("[data-menu-close]");
+      const body = document.body;
+
+      const closeDrawer = () => {
+        drawer?.setAttribute("inert", "");
+        drawer?.classList.remove("open");
+        toggle?.setAttribute("aria-expanded", "false");
+        body.style.overflow = "";
+      };
+
+      toggle?.addEventListener("click", () => {
+        const open = drawer?.hasAttribute("inert");
+        if (open) {
+          drawer.removeAttribute("inert");
+          drawer.classList.add("open");
+          toggle.setAttribute("aria-expanded", "true");
+          body.style.overflow = "hidden";
+        }
+      });
+
+      close?.addEventListener("click", closeDrawer);
+
+      document.querySelectorAll("[data-mobile-nav] a").forEach((link) => {
+        link.addEventListener("click", closeDrawer);
+      });
+
+      document.querySelectorAll("[data-accordion-trigger]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn.classList.toggle("expanded");
+          btn.nextElementSibling?.classList.toggle("open");
+        });
+      });
+    </script>
   </body>
 </html>

@@ -111,13 +111,8 @@ const advantages = [
     </section>
 
     <section class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Product range</p>
+      <div class="section-heading product-range-heading">
         <h2>Dry-type bushing models for transformer, GIS and wall applications</h2>
-        <p>
-          Select by voltage, current, insulation interface and mounting drawing. For replacement projects,
-          send drawings or photos and we will verify the matching model before quotation.
-        </p>
         <a class="button primary orange" href="/contact/">Get Recommendation →</a>
       </div>
       <div class="product-grid large">
@@ -138,9 +133,6 @@ const advantages = [
               <h3>{item.title}</h3>
               <strong>{item.voltage} | {item.current || "Contact for specs"}</strong>
               <p>{item.description}</p>
-              <div class="tag-list">
-                {item.tags.map((tag) => <span>{tag}</span>)}
-              </div>
               <a class="button primary orange" href={item.href}>View Details →</a>
             </div>
           </article>
@@ -234,24 +226,13 @@ const advantages = [
         });
       }
     </script>
-    <style is:global>
-      .page-hero {
-        min-height: 180px !important;
-      }
-
-      .page-hero h1 {
-        font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
-      }
-
-      .trust-row {
-        margin-top: -24px;
-      }
-
-      .section:first-of-type {
-        padding-top: clamp(28px, 4vw, 48px);
-      }
-    </style>
     <style>
+      .product-range-heading h2 {
+        max-width: 820px;
+        font-size: clamp(2rem, 4.2vw, 3.6rem);
+        line-height: 1.08;
+      }
+
       .product-card picture {
         display: block;
         margin-bottom: 1rem;
@@ -262,6 +243,17 @@ const advantages = [
         width: 100%;
         height: auto;
         border-radius: 10px;
+      }
+
+      @media (max-width: 680px) {
+        .product-range-heading {
+          margin-bottom: 24px;
+        }
+
+        .product-range-heading h2 {
+          font-size: clamp(1.75rem, 9vw, 2.45rem);
+          line-height: 1.12;
+        }
       }
     </style>
   </main>

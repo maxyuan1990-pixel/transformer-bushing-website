@@ -1,6 +1,7 @@
 ---
 import PageHero from "../components/PageHero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { allProjects } from "../data/projects.js";
 import { applicationCards, company } from "../data/site.js";
 
 const trustStats = [
@@ -8,65 +9,6 @@ const trustStats = [
   { value: "12+", label: "Years Operation" },
   { value: "75%", label: "Railway Market Share" },
   { value: "30+", label: "Countries" },
-];
-
-const featuredProjects = [
-  {
-    name: "Lhasa-Nyingchi Railway",
-    customer: "Yunnan Transformer",
-    product: "220kV Transformer Bushing",
-    date: "2020",
-    tag: "Railway",
-    note: "Applied in high-altitude railway power infrastructure where insulation stability and long-term operation are critical.",
-  },
-  {
-    name: "Sichuan Batang 500kV Substation (State Grid)",
-    customer: "Shandong Dachi Electric",
-    product: "252kV Transformer Bushing",
-    date: "2017",
-    tag: "Substation",
-    note: "Supplied for a 500kV grid node requiring reliable transformer-side bushing performance under utility operation.",
-  },
-  {
-    name: "Gansu Longyuan 500MW Solar + Storage",
-    customer: "Xi'an XD Transformer",
-    product: "330kV Transformer Bushing",
-    date: "2023",
-    tag: "Solar",
-    note: "Used in renewable energy transmission equipment for a large solar-plus-storage project with high-voltage connection needs.",
-  },
-  {
-    name: "Chengdu-Chongqing High-Speed Railway",
-    customer: "TBEA Xinjiang",
-    product: "252kV Transformer Bushing",
-    date: "2019",
-    tag: "Railway",
-    note: "Railway traction power equipment demands stable insulation, compact installation and dependable field service life.",
-  },
-  {
-    name: "Jiangxi Jiepai Hydropower Station",
-    customer: "Jiangsu Yawei Transformer",
-    product: "126kV Oil-SF6 Bushing",
-    date: "2015",
-    tag: "Hydropower",
-    note: "Selected for hydropower transformer equipment where sealed interfaces and long-term grid operation matter.",
-  },
-  {
-    name: "Shaanxi Linyou 350MW Coal Power Plant",
-    customer: "Xi'an XD Switchgear",
-    product: "330kV GIS Bushing",
-    date: "2018",
-    tag: "Substation",
-    note: "GIS bushing application for power plant switchgear and high-voltage transmission interface equipment.",
-  },
-  {
-    name: "Ningxia Dadi Tire Project",
-    customer: "Pinggao Group",
-    product: "126kV GIS Bushing",
-    date: "2015",
-    tag: "Industrial",
-    note: "Industrial power distribution projects need robust GIS interfaces for reliable plant-side electrical operation.",
-  },
 ];
 
 const customers = [
@@ -105,30 +47,34 @@ const customers = [
     <section class="section cases-preview">
       <div class="section-heading center">
         <p class="eyebrow">Featured projects</p>
-        <h2>Installed in railways, substations, renewable energy and industrial plants</h2>
+        <h2>12 reference projects across railways, substations, solar, hydropower and industrial plants</h2>
         <p>
           These references show the application range of Qixing high-voltage bushings from 2015 to 2023.
-          Share your project rating and we can match the closest reference case for engineering review.
+          Click any project for full details and on-site images.
         </p>
         <a class="button primary orange" href="/contact/">Request Similar Reference →</a>
       </div>
       <div class="project-grid">
-        {featuredProjects.map((item) => (
-          <article>
-            <img src="/assets/application-transformer-sites.jpg" alt="" />
-            <div>
-              <h3>{item.name}</h3>
-              <span>{item.customer}</span>
-              <strong>{item.product} | Commissioned {item.date}</strong>
-              <p>{item.note}</p>
-              <div class="tag-list">
-                <span>{item.tag}</span>
+        {allProjects.map((item) => (
+          <a href={`/applications/${item.slug}/`} class="project-card-link">
+            <article class="project-card">
+              <div class="project-card-img">
+                <img
+                  src={`/assets/projects/${item.images[0]}`}
+                  alt={item.title}
+                  loading="lazy"
+                />
               </div>
-            </div>
-          </article>
+              <div class="project-card-body">
+                <h3>{item.title}</h3>
+                <span class="project-customer">{item.customer}</span>
+                <strong class="project-product">{item.products} | {item.date}</strong>
+                <p>{item.note}</p>
+              </div>
+            </article>
+          </a>
         ))}
       </div>
-      <a class="text-link" href="/contact/">Discuss Your Project →</a>
     </section>
 
     <section class="section applications-band">
@@ -136,7 +82,7 @@ const customers = [
         <p class="eyebrow">Application scenarios</p>
         <h2>Where Qixing bushings are typically used</h2>
       </div>
-      <div class="case-grid">
+      <div class="case-grid case-grid-four">
         {applicationCards.map((item, index) => (
           <article>
             <span>{String(index + 1).padStart(2, "0")}</span>
@@ -180,3 +126,86 @@ const customers = [
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .project-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card-link:hover .project-card {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+  }
+
+  .project-card-img {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #f0f0f0;
+  }
+  .project-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-card-body {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card-body h3 {
+    font-size: 1.05rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+  }
+  .project-customer {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  .project-product {
+    display: block;
+    font-size: 0.85rem;
+    color: #333;
+    margin: 0.5rem 0;
+  }
+  .project-card-body p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    flex: 1;
+  }
+  /* Force 4 columns for application scenario cards */
+  .case-grid-four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @media (max-width: 900px) {
+    .case-grid-four {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 560px) {
+    .case-grid-four {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
