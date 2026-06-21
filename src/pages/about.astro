@@ -38,14 +38,24 @@ const aboutMedia = {
     "https://hkimg.bjyyb.net/sites/98000/98001/1778209447911210225553027072.png",
   ],
   rif: [
-    "https://hkimg.bjyyb.net/sites/98000/98001/1778209447911210227729870848.png",
-    "https://hkimg.bjyyb.net/sites/98000/98001/1778209448911210230078681088.png",
-    "https://hkimg.bjyyb.net/sites/98000/98001/1778209448911210232683343872.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211299911217994544885760.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211300911217997124382720.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211300911217999498358784.png",
+  ],
+  showcase: [
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778216600911240229397647360.jpg",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211301911218003650719744.jpg",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778216601911240233172520960.jpg",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211302911218007635308544.jpg",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211303911218009610825728.jpg",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211303911218011594731520.jpg",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211304911218013813518336.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211304911218015843561472.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778211305911218017739386880.png",
   ],
   lab: [
-    "https://hkimg.bjyyb.net/sites/98000/98001/1778209449911210235426418688.png",
-    "https://hkimg.bjyyb.net/sites/98000/98001/1778209450911210237754257408.png",
-    "https://hkimg.bjyyb.net/sites/98000/98001/1778209450911210241134866432.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778217162911242584344154112.png",
+    "https://hkimg.bjyyb.net/sites/98000/98001/1778217267911243026688032768.png",
   ],
   certifications: [
     "https://hkimg.bjyyb.net/sites/98000/98001/1778209451911210243454316544.jpg",
@@ -150,6 +160,7 @@ const applications = [
       ))}
     </section>
 
+    <!-- ====== 1. National high-tech enterprise ====== -->
     <section class="section split">
       <div>
         <h2>National high-tech enterprise specializing in RIP/RIF dry-type capacitive bushings</h2>
@@ -160,8 +171,18 @@ const applications = [
           global power and energy industry.
         </p>
         <p>
-          We manufacture Resin Impregnated Paper (RIP) and Resin Impregnated Fiber (RIF) bushings
-          covering Oil-Air, Oil-SF6, Oil-Oil, High-Current, GIS and Wall Bushing types.
+          We manufacture <strong>Resin Impregnated Paper (RIP)</strong> and <strong>Resin Impregnated Fiber (RIF)</strong>
+          bushings covering six core product types:
+        </p>
+        <div class="product-tags">
+          <span>Oil-Air Transformer Bushing</span>
+          <span>Oil-SF₆ Transformer Bushing</span>
+          <span>Oil-Oil Transformer Bushing</span>
+          <span>High-Current Bushing</span>
+          <span>GIS Outlet Bushing</span>
+          <span>Wall Bushing</span>
+        </div>
+        <p>
           With over 50,000 bushings delivered, including 4,917 units for railway projects holding
           75% of China's railway market share, our products serve State Grid, China Southern Power
           Grid, and major energy groups across 60+ export countries.
@@ -185,24 +206,7 @@ const applications = [
       </div>
     </section>
 
-    <section class="section split about-product-section">
-      <div>
-        <h2>Resin Impregnated Paper insulation for transformer and GIS interfaces</h2>
-        <p>
-          RIP bushings use resin-impregnated paper as the main insulation system, giving stable
-          electrical performance, compact dimensions, lighter weight and maintenance-free operation
-          for high-voltage transmission and transformation equipment.
-        </p>
-      </div>
-      <div class="about-media-grid">
-        {aboutMedia.rip.map((src, index) => (
-          <figure>
-            <img src={src} alt={`RIP dry-type bushing product ${index + 1}`} loading="lazy" />
-          </figure>
-        ))}
-      </div>
-    </section>
-
+    <!-- ====== 2. 550kV EHV Laboratory ====== -->
     <section class="section dark-section">
       <div class="section-heading compact">
         <h2>550kV EHV testing laboratory with fully shielded design</h2>
@@ -230,19 +234,109 @@ const applications = [
       </div>
     </section>
 
+    <!-- ====== 3. Product Showcase ====== -->
     <section class="section">
-      <div class="section-heading center">
-        <h2>ISO certified, IEC &amp; GB/T compliant</h2>
+      <div class="section-heading compact">
+        <h2>Dry-type capacitive bushings — 12kV to 550kV, 5A to 40,000A</h2>
       </div>
-      <div class="about-media-grid certificate-gallery">
-        {aboutMedia.certifications.map((src, index) => (
+      <p>
+        Our product portfolio covers Oil-Air, Oil-SF₆, Oil-Oil, High-Current, GIS and Wall
+        Bushing types for transformers, switchgear, railway traction and SVG systems.
+        With a designed annual output of RMB 300 million, we have delivered nearly 50,000
+        bushings rated up to 550kV, including 4,917 units for railway projects holding
+        75% of China's railway market share.
+      </p>
+
+      <div class="feature-grid">
+        <div>
+          <h3>Oil-free, gas-free solid insulation</h3>
+          <p>No fillers, no leakage, maintenance-free dry-type design</p>
+        </div>
+        <div>
+          <h3>High insulation margin &amp; PD-free</h3>
+          <p>High corona inception voltage, partial discharge-free operation</p>
+        </div>
+        <div>
+          <h3>Flame-retardant &amp; explosion-proof</h3>
+          <p>Solid insulation material — no combustion, no explosion risk</p>
+        </div>
+        <div>
+          <h3>Compact &amp; lightweight</h3>
+          <p>Optimized dimensions, easy to transport, installation at any angle</p>
+        </div>
+        <div>
+          <h3>High mechanical strength</h3>
+          <p>Advanced layup process, high bending strength for seismic zones</p>
+        </div>
+        <div>
+          <h3>Extreme temperature resistance</h3>
+          <p>Suitable for ESP and superconducting cable joint applications</p>
+        </div>
+        <div>
+          <h3>Anti-pollution composite housing</h3>
+          <p>Silicone rubber sheds — self-cleaning, ideal for coastal and polluted environments</p>
+        </div>
+        <div>
+          <h3>Long service life &amp; fast delivery</h3>
+          <p>Low long-term operating cost, short lead time, custom designs available</p>
+        </div>
+      </div>
+
+      <div class="about-media-grid product-showcase-gallery" style="margin-top: 2rem;">
+        {aboutMedia.showcase.map((src, index) => (
           <figure>
-            <img src={src} alt={`Qixing certification and honor ${index + 1}`} loading="lazy" />
+            <img src={src} alt={`Qixing dry-type bushing product showcase ${index + 1}`} loading="lazy" />
           </figure>
         ))}
       </div>
     </section>
 
+    <!-- ====== 4. RIF Bushing ====== -->
+    <section class="section split about-product-section">
+      <div>
+        <h2>Resin Impregnated Fiber — solid insulation for demanding environments</h2>
+        <p>
+          RIF dry-type capacitive bushings use a solid capacitor core made of high-performance
+          glass fiber impregnated with epoxy resin and cured at high temperature. Available in
+          draw-lead or draw-rod conductor configurations, with silicone rubber sheds or porcelain
+          external insulation.
+        </p>
+        <p>
+          RIF technology delivers an oil-free, solid insulation design that is inherently
+          maintenance-free. The compact form factor supports installation at any angle with
+          stable electrical performance and zero risk of combustion or explosion — making it
+          the preferred choice for safety-critical applications.
+        </p>
+      </div>
+      <div class="about-media-grid">
+        {aboutMedia.rif.map((src, index) => (
+          <figure>
+            <img src={src} alt={`RIF dry-type bushing product ${index + 1}`} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <!-- ====== 5. RIP Bushing / Resin Impregnated Paper ====== -->
+    <section class="section split about-product-section">
+      <div>
+        <h2>Resin Impregnated Paper insulation for transformer and GIS interfaces</h2>
+        <p>
+          RIP bushings use resin-impregnated paper as the main insulation system, giving stable
+          electrical performance, compact dimensions, lighter weight and maintenance-free operation
+          for high-voltage transmission and transformation equipment.
+        </p>
+      </div>
+      <div class="about-media-grid">
+        {aboutMedia.rip.map((src, index) => (
+          <figure>
+            <img src={src} alt={`RIP dry-type bushing product ${index + 1}`} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <!-- ====== 6. Projects ====== -->
     <section class="section">
       <div class="section-heading center">
         <h2>Proven in railways, substations and energy infrastructure</h2>
@@ -261,25 +355,7 @@ const applications = [
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-heading center">
-        <h2>Trusted by industry leaders</h2>
-      </div>
-      <div class="client-logo-marquee about-client-marquee" aria-label="Major customer logos">
-        {customerLogoRows.map((row, rowIndex) => (
-          <div class="client-row">
-            <div class={`client-track ${rowIndex === 1 ? "reverse" : ""}`}>
-              {[...row, ...row].map((src, index) => (
-                <div class="client-logo-card">
-                  <img src={src} alt={`Major customer logo ${index + 1}`} loading="lazy" />
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
+    <!-- ====== 7. Applications ====== -->
     <section class="section">
       <div class="section-heading center">
         <h2>Trusted by power grids, railways and energy projects in 60+ countries</h2>
@@ -301,6 +377,41 @@ const applications = [
       </div>
     </section>
 
+    <!-- ====== 8. Customer logos ====== -->
+    <section class="section">
+      <div class="section-heading center">
+        <h2>Trusted by industry leaders</h2>
+      </div>
+      <div class="client-logo-marquee about-client-marquee" aria-label="Major customer logos">
+        {customerLogoRows.map((row, rowIndex) => (
+          <div class="client-row">
+            <div class={`client-track ${rowIndex === 1 ? "reverse" : ""}`}>
+              {[...row, ...row].map((src, index) => (
+                <div class="client-logo-card">
+                  <img src={src} alt={`Major customer logo ${index + 1}`} loading="lazy" />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ====== 9. Certifications ====== -->
+    <section class="section">
+      <div class="section-heading center">
+        <h2>ISO certified, IEC &amp; GB/T compliant</h2>
+      </div>
+      <div class="about-media-grid certificate-gallery">
+        {aboutMedia.certifications.map((src, index) => (
+          <figure>
+            <img src={src} alt={`Qixing certification and honor ${index + 1}`} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <!-- ====== 10. Future vision ====== -->
     <section class="section split about-product-section">
       <div>
         <h2>Building a world-class brand in power insulation</h2>
@@ -319,6 +430,7 @@ const applications = [
       </div>
     </section>
 
+    <!-- ====== CTA ====== -->
     <section class="cta-panel">
       <div>
         <h2>Talk to Mark Yan about your project requirements</h2>
@@ -341,3 +453,64 @@ const applications = [
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .feature-grid > div {
+    background: #f8f9fb;
+    border-radius: 8px;
+    padding: 1.25rem;
+    border-left: 3px solid #f47920;
+  }
+
+  .feature-grid h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: #1a3a5c;
+  }
+
+  .feature-grid p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .feature-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0.6rem 0 1rem;
+  }
+
+  .product-tags span {
+    display: inline-block;
+    background: linear-gradient(135deg, #1a3a5c 0%, #1f4d7a 100%);
+    color: #fff;
+    padding: 0.35rem 0.85rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-left: 3px solid #f47920;
+  }
+</style>

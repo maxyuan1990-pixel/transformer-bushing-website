@@ -14,42 +14,109 @@ const reportGroups = [
   {
     title: "550kV Class",
     reports: [
-      "550kV RIP Transformer Bushing Testing Report",
-      "550kV Dry-type Transformer Bushing Testing Report",
-      "550kV Impregnated Paper Inspection Report",
-      "550kV Dry-type Inspection Report",
+      {
+        name: "550kV RIP Transformer Bushing Testing Report",
+        file: "550kv-rip-transformer-bushing-testing-report.pdf",
+      },
+      {
+        name: "550kV Dry-type Transformer Bushing Testing Report",
+        file: "550kv-dry-type-transformer-bushing-testing-report.pdf",
+      },
+      {
+        name: "550kV Impregnated Paper Inspection Report",
+        file: "550kv-impregnated-paper-inspection-report.pdf",
+      },
+      {
+        name: "550kV Dry-type Inspection Report",
+        file: "550kv-dry-type-inspection-report.pdf",
+      },
     ],
   },
   {
     title: "363kV Class",
-    reports: ["363kV Impregnated Paper Inspection Report"],
+    reports: [
+      {
+        name: "363kV Impregnated Paper Inspection Report",
+        file: "363kv-impregnated-paper-inspection-report.pdf",
+      },
+    ],
   },
   {
     title: "252kV Class",
     reports: [
-      "252kV RIP Transformer Bushing Testing Report",
-      "252-4000 Wall Bushing Testing Report",
+      {
+        name: "252kV RIP Transformer Bushing Testing Report",
+        file: "252kv-rip-transformer-bushing-testing-report.pdf",
+      },
+      {
+        name: "252kV Impregnated Paper Inspection Report",
+        file: "252kv-impregnated-paper-inspection-report.pdf",
+      },
+      {
+        name: "252kV Impregnated Fiber Test Report",
+        file: "252kv-impregnated-fiber-test-report.pdf",
+      },
+      {
+        name: "252-4000 Wall Bushing Testing Report",
+        file: "252-4000-wall-bushing-testing-report.pdf",
+      },
+      {
+        name: "252-4000 Through-wall Bushing Inspection Report",
+        file: "252-4000-through-wall-bushing-inspection-report.pdf",
+      },
     ],
   },
   {
     title: "126kV Class",
     reports: [
-      "126kV RIP Transformer Bushing Testing Report",
-      "126kV RIF Transformer Bushing Testing Report",
+      {
+        name: "126kV RIP Transformer Bushing Testing Report",
+        file: "126kv-rip-transformer-bushing-testing-report.pdf",
+      },
+      {
+        name: "126kV RIF Transformer Bushing Testing Report",
+        file: "126kv-rif-transformer-bushing-testing-report.pdf",
+      },
+      {
+        name: "126kV Impregnated Paper Inspection Report",
+        file: "126kv-impregnated-paper-inspection-report.pdf",
+      },
+      {
+        name: "126kV Impregnated Fiber Inspection Report",
+        file: "126kv-impregnated-fiber-inspection-report.pdf",
+      },
     ],
   },
   {
     title: "72.5kV & Below",
     reports: [
-      "72.5kV RIP Transformer Bushing Testing Report",
-      "40.5kV Fiberglass Capacitive Through-Wall Bushing Inspection Report",
-      "27.5kV High-Speed Railway Wall Bushing Inspection Report",
+      {
+        name: "72.5kV RIP Transformer Bushing Testing Report",
+        file: "72-5kv-rip-transformer-bushing-testing-report.pdf",
+      },
+      {
+        name: "72.5kV Impregnated Paper Inspection Report",
+        file: "72-5kv-impregnated-paper-inspection-report.pdf",
+      },
+      {
+        name: "72.5kV Fiberglass Inspection Report",
+        file: "72-5kv-fiberglass-inspection-report.pdf",
+      },
+      {
+        name: "40.5kV Fiberglass Capacitive Through-Wall Bushing Inspection Report",
+        file: "40-5kv-fiberglass-capacitive-through-wall-bushing-inspection-report.pdf",
+      },
+      {
+        name: "40.5kV High Current Inspection Report",
+        file: "40-5kv-high-current-inspection-report.pdf",
+      },
+      {
+        name: "27.5kV High-Speed Railway Wall Bushing Inspection Report",
+        file: "27-5kv-high-speed-railway-wall-bushing-inspection-report.pdf",
+      },
     ],
   },
 ];
-
-const requestLink = (report: string) =>
-  `mailto:${company.contact.email}?subject=${encodeURIComponent(`Request Test Report: ${report}`)}`;
 ---
 
 <BaseLayout title={`Downloads | ${company.name}`}>
@@ -89,9 +156,9 @@ const requestLink = (report: string) =>
               <article class="product-card flat">
                 <div>
                   <span>Testing Report</span>
-                  <h3>{report}</h3>
-                  <p>PDF file is available on request. Contact Mark Yan and specify your project voltage class.</p>
-                  <a class="button primary orange" href={requestLink(report)}>Request by Email →</a>
+                  <h3>{report.name}</h3>
+                  <p>Download the PDF testing report for engineering review and procurement documentation.</p>
+                  <a class="button primary orange" href={`/downloads/${report.file}`} download>Download PDF →</a>
                 </div>
               </article>
             ))}

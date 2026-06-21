@@ -2,13 +2,6 @@
 import PageHero from "../components/PageHero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { company } from "../data/site.js";
-
-const trustStats = [
-  { value: "50,000+", label: "Installations" },
-  { value: "550kV", label: "Testing Lab" },
-  { value: "ISO 9001", label: "Certified" },
-  { value: "24h", label: "Engineering Response" },
-];
 ---
 
 <BaseLayout title={`Contact | ${company.name}`}>
@@ -20,36 +13,8 @@ const trustStats = [
       image="/assets/factory-testing-line.jpg"
     />
 
-    <section class="trust-row" aria-label="Contact trust signals">
-      {trustStats.map((item) => (
-        <article>
-          <div>
-            <strong>{item.value}</strong>
-            <p>{item.label}</p>
-          </div>
-        </article>
-      ))}
-    </section>
-
     <section class="section split">
       <div>
-        <div class="contact-card">
-          <div class="contact-avatar" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
-            </svg>
-          </div>
-          <div>
-            <strong>{company.contact.person}</strong>
-            <span>{company.contact.title}</span>
-            <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">{company.contact.phone} (WhatsApp)</a>
-            <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
-          </div>
-        </div>
-        <p>Address: {company.contact.address}</p>
-      </div>
-      <div>
-        <p class="eyebrow">Send inquiry</p>
         <h2>Share your voltage, application and drawing reference</h2>
         <form class="contact-form" data-contact-form>
           <div class="form-row full">
@@ -66,6 +31,34 @@ const trustStats = [
         </form>
         <p class="inquiry-success" data-contact-success hidden>Thank you! Mark will reply within 24 hours.</p>
       </div>
+
+      <aside class="contact-visual-card" aria-label="Mark Yan contact information">
+        <img
+          src="/assets/contact-reference.png"
+          alt="Mark Yan, Global Sales Director at Qixing High Voltage"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="contact-visual-gradient" aria-hidden="true"></div>
+        <div class="contact-visual-info">
+          <strong>{company.contact.person}</strong>
+          <span>{company.contact.title}</span>
+          <a class="contact-visual-link whatsapp" href={company.contact.whatsappUrl} target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.5 11.8a8.5 8.5 0 0 1-12.6 7.4L4 20.4l1.2-3.8a8.5 8.5 0 1 1 15.3-4.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9.1 8.2c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5 1 1.4 1.8 2.4 2.3.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.3.2.4.3.4.5 0 .8-.8 1.6-1.5 1.7-1.2.2-3-.5-4.4-1.8-1.5-1.4-2.7-3.3-2.8-4.8 0-.4.1-.8.2-1.1Z" fill="currentColor"/>
+            </svg>
+            <span>{company.contact.phone}</span>
+          </a>
+          <a class="contact-visual-link" href={`mailto:${company.contact.email}`}>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.5 6.5h15v11h-15v-11Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="m5 7 7 6 7-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>{company.contact.email}</span>
+          </a>
+        </div>
+      </aside>
     </section>
 
     <section class="cta-panel">
