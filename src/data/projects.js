@@ -3,6 +3,20 @@
 
 export const allProjects = [
   {
+    slug: "world-first-550kv-rectifier-transformer",
+    title: "550kV Bushings Power the World's First Industrial-Grade 550kV Rectifier Transformer",
+    customer: "Jiangxi Transformer Science & Technology Co., Ltd.",
+    project: "World's First 550kV Industrial Rectifier Transformer",
+    products: "550kV Dry-type Condenser Bushing",
+    date: "17th Jun. 2026",
+    tag: "Milestone",
+    note: "The world's first industrial-grade 550kV rectifier transformer, developed by Jiangxi Transformer Science & Technology Co., Ltd., passed all type and routine tests in a single session. The unit is equipped with Qixing 550kV dry-type condenser bushings, demonstrating insulation reliability, partial discharge control and mechanical stability under ultra-high voltage conditions. This milestone validates domestically engineered high-end bushings for critical industrial power equipment.",
+    images: [
+      "550kV-Rectifier-Transformer-World-First-Qixing-Bushing-1.jpg",
+      "550kV-Rectifier-Transformer-World-First-Qixing-Bushing-2.jpg",
+    ],
+  },
+  {
     slug: "lhasa-nyingchi-railway",
     title: "220kV Bushing in Operation on the Lhasa-Nyingchi Railway",
     customer: "Yunnan Transformer Electrical Co., Ltd.",

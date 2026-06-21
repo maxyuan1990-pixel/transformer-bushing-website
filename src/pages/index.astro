@@ -6,16 +6,8 @@ const trustStats = [
   { icon: "calendar", value: "13+", label: "Industry Experiences" },
   { icon: "factory", value: "10000㎡", label: "Factory Areas(m²)" },
   { icon: "case", value: "30000+", label: "Installation Case" },
-  { icon: "team", value: "100+", label: "Company Employees" },
+  { icon: "team", value: "100+", label: "Employees" },
   { icon: "satisfaction", value: "99%", label: "Customer Satisfaction" },
-];
-
-const advantages = [
-  { icon: "fire", title: "Fire-safe", text: "No oil, no explosion risk" },
-  { icon: "tool", title: "Maintenance-free", text: "Zero field maintenance" },
-  { icon: "scale", title: "Lightweight", text: "30-50% lighter than porcelain" },
-  { icon: "angle", title: "Any Angle", text: "Horizontal, vertical, or tilted installation" },
-  { icon: "leaf", title: "Eco-friendly", text: "No SF6, no oil leakage" },
 ];
 
 const products = [
@@ -59,6 +51,14 @@ const products = [
 
 const cases = [
   {
+    name: "World's First 550kV Rectifier Transformer",
+    country: "Jiangxi Transformer",
+    model: "550kV Dry-type Bushing",
+    result: "Powered the world's first industrial-grade 550kV rectifier transformer — all type and routine tests passed in a single session.",
+    img: "550kV-Rectifier-Transformer-World-First-Qixing-Bushing-1.jpg",
+    slug: "world-first-550kv-rectifier-transformer",
+  },
+  {
     name: "Lhasa-Nyingchi Railway",
     country: "Tibet, China",
     model: "220kV Transformer Bushing",
@@ -82,10 +82,24 @@ const cases = [
     img: "330kV-Transformer-Bushing-for-Gansu-Longyuan-500MW-Photovoltaic-Desert-Control-Project-1.jpg",
     slug: "gansu-longyuan-solar-storage",
   },
+  {
+    name: "Ningxia Dadi Tire Project",
+    country: "Pinggao Group",
+    model: "126kV GIS Bushing",
+    result: "Robust GIS bushing interfaces for demanding industrial manufacturing operations.",
+    img: "126kV-GIS-Bushing-in-Operation-at-Ningxia-Dadi-Tire-Project-1.png",
+    slug: "ningxia-dadi-tire",
+  },
+  {
+    name: "Hebei Provincial Power Project",
+    country: "Baoding Tianwei Baobian",
+    model: "252kV Transformer Bushing",
+    result: "Stringent utility-grade 252kV performance for major Hebei power infrastructure since 2016.",
+    img: "252kV-Transformer-Bushing-in-Operation-at-Hebei-Project-1.png",
+    slug: "hebei-project",
+  },
 ];
 
-const certifications = ["ISO 9001", "ISO 14001", "ISO 45001", "CE", "IEC 60137", "DL/T 1001"];
-const customers = ["TBEA", "XD Electric", "Baoding Tianwei Baobian", "Pinggao Group", "Yunnan Transformer"];
 const clientLogoRows = [
   [
     "ABB-Logo.jpg",
@@ -127,10 +141,26 @@ const clientLogoRows = [
   ],
 ];
 const factoryStats = [
-  "9,950 m2 Manufacturing Facility",
-  "100+ Skilled Employees",
-  "RMB 300M Annual Production Capacity",
-  "4,917+ Railway Bushings in Service",
+  {
+    value: "9,950 m²",
+    label: "Manufacturing Facility",
+    desc: "Covered production area with casting, winding, assembly and testing workshops",
+  },
+  {
+    value: "100+",
+    label: "Skilled Workforce",
+    desc: "Engineers and technicians with an average of 7+ years in HV bushing manufacturing",
+  },
+  {
+    value: "RMB 300M",
+    label: "Annual Capacity",
+    desc: "Production capacity covering 12kV–550kV RIP/RIF bushing full voltage series",
+  },
+  {
+    value: "4,917+",
+    label: "Railway Bushings Deployed",
+    desc: "Dry-type bushings in active service across China's railway electrification network",
+  },
 ];
 ---
 
@@ -255,16 +285,22 @@ const factoryStats = [
 
     <section class="section factory-overview">
       <div class="factory-images">
-        <img src="/assets/factory-testing-line.jpg" alt="High voltage bushing factory testing line" />
-        <img src="/assets/inspection-reports.jpg" alt="Inspection reports and certificates" />
-        <img src="/assets/product-structure-table.jpg" alt="Product structure and technical table" />
+        <img src="/assets/factory/factory-550kv-rip-production-building.png" alt="550kV RIP production building and outdoor high-voltage bushing" />
+        <img src="/assets/factory/factory-quality-inspection.png" alt="Factory production quality inspection" />
+        <img src="/assets/factory/factory-ehv-testing-lab.png" alt="EHV testing laboratory control room and test hall" />
       </div>
       <div>
         <h2>Manufacturing capability for large-scale power projects</h2>
         <div class="factory-stat-list">
-          {factoryStats.map((item) => <strong>{item}</strong>)}
+          {factoryStats.map((item) => (
+            <div>
+              <strong>{item.value}</strong>
+              <small>{item.label}</small>
+              <p>{item.desc}</p>
+            </div>
+          ))}
         </div>
-        <a class="button primary orange" href="/about/">Virtual Factory Tour →</a>
+        <a class="button primary orange" href="/about/">Explore Our Factory →</a>
       </div>
     </section>
 
@@ -321,8 +357,12 @@ const factoryStats = [
       if (inquiryForm && inquirySuccess) {
         inquiryForm.addEventListener("submit", (event) => {
           event.preventDefault();
-          inquirySuccess.hidden = false;
-          inquiryForm.reset();
+          if (inquirySuccess instanceof HTMLElement) {
+            inquirySuccess.hidden = false;
+          }
+          if (inquiryForm instanceof HTMLFormElement) {
+            inquiryForm.reset();
+          }
         });
       }
     </script>

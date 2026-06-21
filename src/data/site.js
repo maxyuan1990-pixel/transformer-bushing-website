@@ -4,7 +4,7 @@ export const company = {
   tagline: "Dry-type Bushing Specialist",
   contact: {
     person: "Mark Yan",
-    title: "Technical Sales Director",
+    title: "Global Sales Director",
     phone: "+86 15253211901",
     whatsapp: "+86 15253211901",
     whatsappUrl: "https://wa.me/8615253211901",

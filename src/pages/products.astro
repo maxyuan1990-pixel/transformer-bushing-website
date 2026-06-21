@@ -1,11 +1,11 @@
 ---
 import PageHero from "../components/PageHero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { company } from "../data/site.js";
+import { applicationCards, company } from "../data/site.js";
 
 const trustStats = [
   { value: "50,000+", label: "Bushings Delivered" },
-  { value: "12", label: "Years Manufacturing" },
+  { value: "13", label: "Years Manufacturing" },
   { value: "ISO 9001", label: "Certified" },
   { value: "75%", label: "Railway Market Share" },
 ];
@@ -82,13 +82,6 @@ const mountRows = [
   ["252-550", "200 / 400 / 500 / 700", "EHV substations, rail power and critical grid nodes"],
 ];
 
-const advantages = [
-  { icon: "fire", title: "Fire-safe", text: "No oil, no explosion risk" },
-  { icon: "tool", title: "Maintenance-free", text: "Zero field maintenance" },
-  { icon: "scale", title: "Lightweight", text: "30-50% lighter than porcelain" },
-  { icon: "angle", title: "Any Angle", text: "Horizontal, vertical, or tilted installation" },
-  { icon: "leaf", title: "Eco-friendly", text: "No SF6, no oil leakage" },
-];
 ---
 
 <BaseLayout title={`Products | ${company.name}`}>
@@ -142,7 +135,7 @@ const advantages = [
 
     <section class="section split">
       <div class="image-frame">
-        <img src="/assets/product-structure-table.jpg" alt="High voltage bushing product structure table" />
+        <img src="/assets/bushing-ct-mounting-diagram.svg" alt="Bushing CT mounting position and voltage class reference diagram" />
       </div>
       <div>
         <p class="eyebrow">Technical specifications</p>
@@ -174,14 +167,14 @@ const advantages = [
 
     <section class="section">
       <div class="section-heading">
-        <p class="eyebrow">Why dry-type bushings</p>
-        <h2>Technical advantages for modern power projects</h2>
+        <p class="eyebrow">Application scenarios</p>
+        <h2>Where Qixing bushings are typically used</h2>
       </div>
-      <div class="advantage-grid">
-        {advantages.map((item) => (
+      <div class="case-grid case-grid-four">
+        {applicationCards.map((item, index) => (
           <article>
-            <span class={`line-icon ${item.icon}`} aria-hidden="true"></span>
-            <strong>{item.title}</strong>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{item.title}</h3>
             <p>{item.text}</p>
           </article>
         ))}
@@ -221,8 +214,12 @@ const advantages = [
       if (productInquiryForm && productInquirySuccess) {
         productInquiryForm.addEventListener("submit", (event) => {
           event.preventDefault();
-          productInquirySuccess.hidden = false;
-          productInquiryForm.reset();
+          if (productInquirySuccess instanceof HTMLElement) {
+            productInquirySuccess.hidden = false;
+          }
+          if (productInquiryForm instanceof HTMLFormElement) {
+            productInquiryForm.reset();
+          }
         });
       }
     </script>
@@ -253,6 +250,21 @@ const advantages = [
         .product-range-heading h2 {
           font-size: clamp(1.75rem, 9vw, 2.45rem);
           line-height: 1.12;
+        }
+      }
+
+      /* Force 4 columns for application scenario cards */
+      .case-grid-four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      @media (max-width: 900px) {
+        .case-grid-four {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 560px) {
+        .case-grid-four {
+          grid-template-columns: 1fr;
         }
       }
     </style>

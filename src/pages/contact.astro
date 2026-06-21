@@ -83,8 +83,12 @@ const trustStats = [
       if (form && success) {
         form.addEventListener("submit", (event) => {
           event.preventDefault();
-          success.hidden = false;
-          form.reset();
+          if (success instanceof HTMLElement) {
+            success.hidden = false;
+          }
+          if (form instanceof HTMLFormElement) {
+            form.reset();
+          }
         });
       }
     </script>

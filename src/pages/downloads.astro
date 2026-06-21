@@ -48,7 +48,7 @@ const reportGroups = [
   },
 ];
 
-const requestLink = (report) =>
+const requestLink = (report: string) =>
   `mailto:${company.contact.email}?subject=${encodeURIComponent(`Request Test Report: ${report}`)}`;
 ---
 

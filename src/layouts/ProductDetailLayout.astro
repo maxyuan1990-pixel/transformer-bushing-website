@@ -22,7 +22,6 @@ const {
   description,
   mainImage,
   galleryImages = [],
-  hasSlideEnlarge = false,
 } = Astro.props;
 
 const allProducts = [
@@ -195,8 +194,12 @@ const allProducts = [
       if (form && success) {
         form.addEventListener("submit", (e) => {
           e.preventDefault();
-          success.hidden = false;
-          form.reset();
+          if (success instanceof HTMLElement) {
+            success.hidden = false;
+          }
+          if (form instanceof HTMLFormElement) {
+            form.reset();
+          }
         });
       }
     </script>

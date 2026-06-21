@@ -31,28 +31,6 @@ const labEquipment = [
   "Fully shielded hexahedral lab - PD background < 3pC",
 ];
 
-const certifications = [
-  "ISO 9001",
-  "ISO 14001",
-  "ISO 45001",
-  "CE",
-  "IEC 60137-2017",
-  "GB/T 4109-2022",
-  "DL/T 1001-2024",
-];
-
-const customers = [
-  "TBEA",
-  "XD Electric",
-  "Baoding Tianwei Baobian",
-  "Pinggao Group",
-  "Yunnan Transformer",
-  "Sieyuan Electric",
-  "Chint Group",
-  "ABB",
-  "Siemens",
-];
-
 const aboutMedia = {
   rip: [
     "https://hkimg.bjyyb.net/sites/98000/98001/1778209446911210221077704704.png",
@@ -174,7 +152,6 @@ const applications = [
 
     <section class="section split">
       <div>
-        <p class="eyebrow">Company profile</p>
         <h2>National high-tech enterprise specializing in RIP/RIF dry-type capacitive bushings</h2>
         <p>
           {company.name} was founded in 2013 in Gaomi City, Shandong Province. As a national
@@ -210,7 +187,6 @@ const applications = [
 
     <section class="section split about-product-section">
       <div>
-        <p class="eyebrow">RIP Bushing</p>
         <h2>Resin Impregnated Paper insulation for transformer and GIS interfaces</h2>
         <p>
           RIP bushings use resin-impregnated paper as the main insulation system, giving stable
@@ -227,28 +203,8 @@ const applications = [
       </div>
     </section>
 
-    <section class="section split about-product-section alt">
-      <div class="about-media-grid">
-        {aboutMedia.rif.map((src, index) => (
-          <figure>
-            <img src={src} alt={`RIF dry-type bushing product ${index + 1}`} loading="lazy" />
-          </figure>
-        ))}
-      </div>
-      <div>
-        <p class="eyebrow">RIF Bushing</p>
-        <h2>Resin Impregnated Fiber structure for lightweight, flexible installation</h2>
-        <p>
-          RIF bushings use fiberglass as the main insulation material with resin impregnation,
-          supporting oil-free design, maintenance-free operation, any-angle installation and stable
-          electrical performance without combustion or explosion risk.
-        </p>
-      </div>
-    </section>
-
     <section class="section dark-section">
       <div class="section-heading compact">
-        <p class="eyebrow">Testing &amp; manufacturing</p>
         <h2>550kV EHV testing laboratory with fully shielded design</h2>
       </div>
       <div class="split dark-split">
@@ -276,7 +232,6 @@ const applications = [
 
     <section class="section">
       <div class="section-heading center">
-        <p class="eyebrow">Certifications &amp; honors</p>
         <h2>ISO certified, IEC &amp; GB/T compliant</h2>
       </div>
       <div class="about-media-grid certificate-gallery">
@@ -286,14 +241,10 @@ const applications = [
           </figure>
         ))}
       </div>
-      <div class="badge-row">
-        {certifications.map((item) => <span>{item}</span>)}
-      </div>
     </section>
 
     <section class="section">
       <div class="section-heading center">
-        <p class="eyebrow">Key projects</p>
         <h2>Proven in railways, substations and energy infrastructure</h2>
         <p>
           Products are widely used in key railway, grid and energy projects including
@@ -312,11 +263,7 @@ const applications = [
 
     <section class="section">
       <div class="section-heading center">
-        <p class="eyebrow">Major customers</p>
         <h2>Trusted by industry leaders</h2>
-      </div>
-      <div class="customer-row">
-        {customers.map((item) => <span>{item}</span>)}
       </div>
       <div class="client-logo-marquee about-client-marquee" aria-label="Major customer logos">
         {customerLogoRows.map((row, rowIndex) => (
@@ -335,7 +282,6 @@ const applications = [
 
     <section class="section">
       <div class="section-heading center">
-        <p class="eyebrow">Global reach</p>
         <h2>Trusted by power grids, railways and energy projects in 60+ countries</h2>
         <p>
           From the China-Laos Railway and Lhasa-Nyingchi high-altitude line to State Grid 500kV
@@ -357,7 +303,6 @@ const applications = [
 
     <section class="section split about-product-section">
       <div>
-        <p class="eyebrow">Future vision</p>
         <h2>Building a world-class brand in power insulation</h2>
         <p>
           Looking ahead, Qixing will continue to focus on dry-type capacitive bushing technology,
@@ -376,7 +321,6 @@ const applications = [
 
     <section class="cta-panel">
       <div>
-        <p class="eyebrow">Engineering support</p>
         <h2>Talk to Mark Yan about your project requirements</h2>
         <p>Send your voltage, current and application - get a technical recommendation within 24 hours.</p>
         <div class="contact-card">

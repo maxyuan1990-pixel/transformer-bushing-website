@@ -2,7 +2,7 @@
 import PageHero from "../components/PageHero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { allProjects } from "../data/projects.js";
-import { applicationCards, company } from "../data/site.js";
+import { company } from "../data/site.js";
 
 const trustStats = [
   { value: "50,000+", label: "Installations" },
@@ -11,17 +11,6 @@ const trustStats = [
   { value: "30+", label: "Countries" },
 ];
 
-const customers = [
-  "TBEA",
-  "XD Electric",
-  "Baoding Tianwei Baobian",
-  "Pinggao Group",
-  "Yunnan Transformer",
-  "Shandong Dachi",
-  "Jiangsu Yawei",
-  "State Grid",
-  "Longyuan Power",
-];
 ---
 
 <BaseLayout title={`Reference Projects | ${company.name}`}>
@@ -77,31 +66,6 @@ const customers = [
       </div>
     </section>
 
-    <section class="section applications-band">
-      <div class="section-heading">
-        <p class="eyebrow">Application scenarios</p>
-        <h2>Where Qixing bushings are typically used</h2>
-      </div>
-      <div class="case-grid case-grid-four">
-        {applicationCards.map((item, index) => (
-          <article>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section class="section trusted">
-      <div class="section-heading center">
-        <p class="eyebrow">Customer trust</p>
-        <h2>Supplied to transformer OEMs, grid equipment makers and project owners</h2>
-      </div>
-      <div class="customer-row">
-        {customers.map((item) => <span>{item}</span>)}
-      </div>
-    </section>
 
     <section class="cta-panel">
       <div>
@@ -193,19 +157,5 @@ const customers = [
     color: #555;
     line-height: 1.5;
     flex: 1;
-  }
-  /* Force 4 columns for application scenario cards */
-  .case-grid-four {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  @media (max-width: 900px) {
-    .case-grid-four {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  @media (max-width: 560px) {
-    .case-grid-four {
-      grid-template-columns: 1fr;
-    }
   }
 </style>
