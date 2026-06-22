@@ -1,1 +1,0 @@
-import{initContactForm as r}from"./contact-form.BRfT9fXP.js";const c=document.querySelector("[data-catalog-form]"),o=document.querySelector("[data-catalog-success]");c&&o&&r(c,o);const t=document.querySelector("[data-inquiry-form]"),e=document.querySelector("[data-inquiry-success]");t&&e&&r(t,e);
