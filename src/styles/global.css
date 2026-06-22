@@ -1364,13 +1364,14 @@ main > .page-hero + .trust-row + .section {
 
 .inquiry-line {
   display: grid;
-  grid-template-columns: 1fr 1fr 0.85fr 1.35fr auto;
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   max-width: 1280px;
   margin: 34px auto 20px;
 }
 
 .inquiry-line input,
+.inquiry-line textarea,
 .mini-form input,
 .mini-form textarea {
   width: 100%;
@@ -1381,6 +1382,16 @@ main > .page-hero + .trust-row + .section {
   background: var(--white);
   color: var(--ink);
   font: inherit;
+}
+
+.inquiry-line textarea {
+  grid-column: 1 / -1;
+  resize: vertical;
+}
+
+.inquiry-line button {
+  grid-column: 1 / -1;
+  justify-self: center;
 }
 
 .mini-form textarea {

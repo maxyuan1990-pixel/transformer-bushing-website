@@ -321,12 +321,14 @@ const factoryStats = [
           <a href={`mailto:${company.contact.email}`}>✉️ {company.contact.email}</a>
         </div>
       </div>
-      <form class="inquiry-line" data-inquiry-form>
+      <form class="inquiry-line" data-inquiry-form data-redirect="/thanks/">
+        <input type="text" placeholder="Name" />
         <input type="email" placeholder="Email *" required />
-        <input type="text" placeholder="Message" />
+        <input type="text" placeholder="WhatsApp" />
+        <input type="text" placeholder="Company" />
+        <textarea rows="4" placeholder="Tell us about your project — voltage, current, quantity, application..."></textarea>
         <button class="button primary orange" type="submit">Submit Inquiry →</button>
       </form>
-      <p class="inquiry-success" data-inquiry-success hidden>Thank you! We'll respond within 24 hours.</p>
       <p class="contact-line">
         <a href="/contact/">Contact</a> | <a href={company.contact.whatsappUrl} target="_blank" rel="noopener">{company.contact.whatsapp}</a> | <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
       </p>
@@ -340,8 +342,7 @@ const factoryStats = [
       if (catalogForm && catalogSuccess) initContactForm(catalogForm, catalogSuccess);
 
       const inquiryForm = document.querySelector("[data-inquiry-form]");
-      const inquirySuccess = document.querySelector("[data-inquiry-success]");
-      if (inquiryForm && inquirySuccess) initContactForm(inquiryForm, inquirySuccess);
+      if (inquiryForm) initContactForm(inquiryForm, null);
     </script>
     <style>
       .tech-visual {
