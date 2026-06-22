@@ -7,3 +7,5 @@ dist/
 Brochure.pdf
 .brochure-text.txt
 .pdf-pages/
+
+.vercel
