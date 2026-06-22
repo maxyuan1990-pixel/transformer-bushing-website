@@ -9,6 +9,8 @@ const {
 
 const currentPath = Astro.url.pathname;
 
+const gtagId = "AW-18262244778";
+
 const layoutNavItems = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products/", children: [
@@ -29,15 +31,15 @@ const layoutNavItems = [
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-18262244778"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18262244778');
-    </script>
     <meta charset="UTF-8" />
+    <Fragment set:html={`<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=${gtagId}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${gtagId}');
+</script>`} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
