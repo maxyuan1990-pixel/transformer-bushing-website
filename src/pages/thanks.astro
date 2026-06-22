@@ -1,0 +1,133 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { company } from "../data/site.js";
+---
+
+<BaseLayout title={`Thank You | ${company.name}`}>
+  <main class="thanks-page">
+    <section class="thanks-hero">
+      <div class="thanks-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" stroke="#f90" stroke-width="3" fill="#fff7e6"/>
+          <path d="M20 32l8 8 16-16" stroke="#f90" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>Thank You for Your Inquiry!</h1>
+      <p class="thanks-sub">We have received your message. Our Team will review it and get back to you within 24 hours.</p>
+    </section>
+
+    <section class="thanks-actions">
+      <a href="/" class="thanks-card">
+        <span class="thanks-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <strong>Return to Home</strong>
+      </a>
+
+      <a href="/products/" class="thanks-card">
+        <span class="thanks-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <strong>Browse Products</strong>
+        <span>Find the right bushing for your application</span>
+      </a>
+
+      <a href="/contact/" class="thanks-card">
+        <span class="thanks-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <strong>Contact Us</strong>
+      </a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .thanks-page {
+    padding-top: clamp(40px, 6vw, 80px);
+    padding-bottom: clamp(60px, 8vw, 100px);
+    text-align: center;
+  }
+
+  .thanks-hero {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .thanks-icon {
+    margin-bottom: 24px;
+  }
+
+  .thanks-icon svg {
+    width: 72px;
+    height: 72px;
+  }
+
+  .thanks-hero h1 {
+    font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  .thanks-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .thanks-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 760px;
+    margin: 48px auto 0;
+    padding: 0 16px;
+  }
+
+  .thanks-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 200px;
+    max-width: 240px;
+    padding: 28px 20px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--dark);
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .thanks-card:hover {
+    border-color: var(--orange);
+    box-shadow: 0 4px 16px rgba(0,0,0,.08);
+  }
+
+  .thanks-card-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff7e6;
+    color: var(--orange);
+    margin-bottom: 4px;
+  }
+
+  .thanks-card-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .thanks-card strong {
+    font-size: 1rem;
+  }
+
+  .thanks-card span {
+    font-size: .85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>

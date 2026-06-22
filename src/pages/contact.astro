@@ -71,19 +71,11 @@ import { company } from "../data/site.js";
     </section>
 
     <script>
+      import { initContactForm } from "../scripts/contact-form.js";
+
       const form = document.querySelector("[data-contact-form]");
       const success = document.querySelector("[data-contact-success]");
-      if (form && success) {
-        form.addEventListener("submit", (event) => {
-          event.preventDefault();
-          if (success instanceof HTMLElement) {
-            success.hidden = false;
-          }
-          if (form instanceof HTMLFormElement) {
-            form.reset();
-          }
-        });
-      }
+      if (form && success) initContactForm(form, success);
     </script>
   </main>
 </BaseLayout>

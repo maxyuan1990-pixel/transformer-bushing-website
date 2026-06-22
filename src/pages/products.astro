@@ -106,7 +106,7 @@ const mountRows = [
     <section class="section">
       <div class="section-heading product-range-heading">
         <h2>Dry-type bushing models for transformer, GIS and wall applications</h2>
-        <a class="button primary orange" href="/contact/">Get Recommendation →</a>
+        <button class="button primary orange" popovertarget="quote-popover" type="button">Get Recommendation →</button>
       </div>
       <div class="product-grid large">
         {products.map((item) => (
@@ -189,9 +189,7 @@ const mountRows = [
       </div>
       <div class="contact-card">
         <div class="contact-avatar" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
-          </svg>
+          <img src="/assets/contact-mark-paper.png" alt="Mark Yan" loading="lazy" />
         </div>
         <div>
           <strong>{company.contact.person}</strong>
@@ -209,19 +207,11 @@ const mountRows = [
     </section>
 
     <script>
+      import { initContactForm } from "../scripts/contact-form.js";
+
       const productInquiryForm = document.querySelector("[data-product-inquiry-form]");
       const productInquirySuccess = document.querySelector("[data-product-inquiry-success]");
-      if (productInquiryForm && productInquirySuccess) {
-        productInquiryForm.addEventListener("submit", (event) => {
-          event.preventDefault();
-          if (productInquirySuccess instanceof HTMLElement) {
-            productInquirySuccess.hidden = false;
-          }
-          if (productInquiryForm instanceof HTMLFormElement) {
-            productInquiryForm.reset();
-          }
-        });
-      }
+      if (productInquiryForm && productInquirySuccess) initContactForm(productInquiryForm, productInquirySuccess);
     </script>
     <style>
       .product-range-heading h2 {

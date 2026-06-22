@@ -169,9 +169,7 @@ const allProducts = [
       </div>
       <div class="contact-card">
         <div class="contact-avatar" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
-          </svg>
+          <img src="/assets/contact-mark-paper.png" alt="Mark Yan" loading="lazy" />
         </div>
         <div>
           <strong>{company.contact.person}</strong>
@@ -189,19 +187,11 @@ const allProducts = [
     </section>
 
     <script>
+      import { initContactForm } from "../scripts/contact-form.js";
+
       const form = document.querySelector("[data-product-inquiry-form]");
       const success = document.querySelector("[data-product-inquiry-success]");
-      if (form && success) {
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          if (success instanceof HTMLElement) {
-            success.hidden = false;
-          }
-          if (form instanceof HTMLFormElement) {
-            form.reset();
-          }
-        });
-      }
+      if (form && success) initContactForm(form, success);
     </script>
   </main>
 </BaseLayout>

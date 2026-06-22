@@ -180,7 +180,7 @@ const factoryStats = [
           <span>&bull; Compliant with IEC 60137-2017 &amp; GB/T 4109-2022</span>
         </p>
         <div class="hero-actions">
-          <a class="button primary orange hero-primary" href="#inquiry">Request a Quote →</a>
+          <button class="button primary orange hero-primary" popovertarget="quote-popover" type="button">Request a Quote →</button>
           <button class="button outline-light" popovertarget="catalog-popover" type="button">
             Download Product Catalog →
           </button>
@@ -193,10 +193,11 @@ const factoryStats = [
       <p class="eyebrow">Product catalog</p>
       <h2>Get the bushing catalog</h2>
       <p>Leave your email and our sales engineer will send the catalog after contact details are confirmed.</p>
-      <form class="mini-form">
+      <form class="mini-form" data-catalog-form>
         <input type="email" placeholder="Business email *" required />
         <button class="button primary orange" type="submit">Request Catalog</button>
       </form>
+      <p class="inquiry-success" data-catalog-success hidden>Check your inbox — we'll send the catalog shortly.</p>
     </div>
 
     <section class="trust-row home-trust-row" aria-label="Factory trust numbers">
@@ -311,9 +312,7 @@ const factoryStats = [
       </div>
       <div class="contact-card">
         <div class="contact-avatar" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
-          </svg>
+          <img src="/assets/contact-mark-paper.png" alt="Mark Yan" loading="lazy" />
         </div>
         <div>
           <strong>{company.contact.person}</strong>
@@ -334,19 +333,15 @@ const factoryStats = [
     </section>
 
     <script>
+      import { initContactForm } from "../scripts/contact-form.js";
+
+      const catalogForm = document.querySelector("[data-catalog-form]");
+      const catalogSuccess = document.querySelector("[data-catalog-success]");
+      if (catalogForm && catalogSuccess) initContactForm(catalogForm, catalogSuccess);
+
       const inquiryForm = document.querySelector("[data-inquiry-form]");
       const inquirySuccess = document.querySelector("[data-inquiry-success]");
-      if (inquiryForm && inquirySuccess) {
-        inquiryForm.addEventListener("submit", (event) => {
-          event.preventDefault();
-          if (inquirySuccess instanceof HTMLElement) {
-            inquirySuccess.hidden = false;
-          }
-          if (inquiryForm instanceof HTMLFormElement) {
-            inquiryForm.reset();
-          }
-        });
-      }
+      if (inquiryForm && inquirySuccess) initContactForm(inquiryForm, inquirySuccess);
     </script>
     <style>
       .tech-visual {

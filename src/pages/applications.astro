@@ -35,11 +35,9 @@ const trustStats = [
 
     <section class="section cases-preview">
       <div class="section-heading center">
-        <p class="eyebrow">Featured projects</p>
-        <h2>12 reference projects across railways, substations, solar, hydropower and industrial plants</h2>
+        <h2>Reference projects across railways, substations, solar, hydropower and industrial plants</h2>
         <p>
-          These references show the application range of Qixing high-voltage bushings from 2015 to 2023.
-          Click any project for full details and on-site images.
+          These references show the application range of Qixing high-voltage bushings. Click any project for full details and on-site images.
         </p>
         <a class="button primary orange" href="/contact/">Request Similar Reference →</a>
       </div>
@@ -58,7 +56,7 @@ const trustStats = [
                 <h3>{item.title}</h3>
                 <span class="project-customer">{item.customer}</span>
                 <strong class="project-product">{item.products} | {item.date}</strong>
-                <p>{item.note}</p>
+                <p>{item.cardDescription || item.note}</p>
               </div>
             </article>
           </a>
@@ -74,9 +72,7 @@ const trustStats = [
         <p>Send your specs — Mark Yan will provide a reference case and quotation.</p>
         <div class="contact-card">
           <div class="contact-avatar" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.4-8 5.3 0 .7.5 1.2 1.2 1.2h13.6c.7 0 1.2-.5 1.2-1.2 0-2.9-3.6-5.3-8-5.3Z" fill="currentColor"/>
-            </svg>
+            <img src="/assets/contact-mark-paper.png" alt="Mark Yan" loading="lazy" />
           </div>
           <div>
             <strong>{company.contact.person}</strong>
