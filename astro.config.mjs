@@ -1,10 +1,10 @@
 import { defineConfig } from "astro/config";
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel";
 
 export default defineConfig({
-  site: "https://example.com",
-  output: "server",
-  adapter: node({ mode: "standalone" }),
+  site: "https://www.qixinghv.com",
+  output: "static",
+  adapter: vercel(),
   vite: {
     cacheDir: process.env.ASTRO_VITE_CACHE_DIR ?? ".astro/vite-cache",
     resolve: {

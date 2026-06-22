@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 560" role="img" aria-label="Transformer bushing application diagram">
+  <defs>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fbfd"/>
+      <stop offset="1" stop-color="#d9e4ec"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" x2="1">
+      <stop offset="0" stop-color="#1b3347"/>
+      <stop offset="1" stop-color="#2b5f7b"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="560" fill="url(#panel)"/>
+  <g fill="none" stroke="#9cafbb" stroke-width="4" opacity="0.65">
+    <path d="M104 84h612M104 140h612M104 196h612"/>
+    <path d="M160 74v370M406 74v370M652 74v370"/>
+  </g>
+  <g transform="translate(178 226)">
+    <rect x="0" y="102" width="464" height="162" rx="18" fill="url(#body)"/>
+    <rect x="44" y="56" width="376" height="66" rx="10" fill="#6d7f8e"/>
+    <g fill="#e9f7fa" stroke="#7f96a2" stroke-width="4">
+      <g transform="translate(78 -14)">
+        <rect x="34" y="0" width="24" height="72" rx="10" fill="#b76837" stroke="none"/>
+        <path d="M28 64h36l23 118H5z"/>
+        <ellipse cx="46" cy="92" rx="54" ry="12"/>
+        <ellipse cx="46" cy="128" rx="62" ry="14"/>
+      </g>
+      <g transform="translate(210 -42)">
+        <rect x="36" y="0" width="28" height="88" rx="10" fill="#b76837" stroke="none"/>
+        <path d="M28 80h44l28 146H0z"/>
+        <ellipse cx="50" cy="112" rx="66" ry="15"/>
+        <ellipse cx="50" cy="158" rx="76" ry="17"/>
+      </g>
+      <g transform="translate(342 -14)">
+        <rect x="34" y="0" width="24" height="72" rx="10" fill="#b76837" stroke="none"/>
+        <path d="M28 64h36l23 118H5z"/>
+        <ellipse cx="46" cy="92" rx="54" ry="12"/>
+        <ellipse cx="46" cy="128" rx="62" ry="14"/>
+      </g>
+    </g>
+    <g fill="#102132" opacity="0.74">
+      <rect x="46" y="154" width="82" height="54" rx="8"/>
+      <rect x="158" y="154" width="82" height="54" rx="8"/>
+      <rect x="270" y="154" width="82" height="54" rx="8"/>
+    </g>
+  </g>
+  <g fill="#18324a" font-family="Arial, sans-serif" font-size="18" font-weight="700">
+    <text x="64" y="504">Transformer tank</text>
+    <text x="550" y="504">HV connection</text>
+  </g>
+  <g stroke="#1d6fb8" stroke-width="4" fill="none" marker-end="url(#arrow)">
+    <path d="M200 482h110"/>
+    <path d="M520 482h110"/>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0 0l10 3-10 3z" fill="#1d6fb8"/>
+    </marker>
+  </defs>
+</svg>
