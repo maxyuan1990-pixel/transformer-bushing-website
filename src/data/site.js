@@ -9,8 +9,6 @@ export const company = {
     whatsapp: "+86 15253211901",
     whatsappUrl: "https://wa.me/8615253211901",
     email: "mark@qixinghv.com",
-    address:
-      "No. 1228, Pengcheng Industrial Park, Pingri Road, Xiazhuang Town, Gaomi City, Shandong, China",
   },
 };
 
