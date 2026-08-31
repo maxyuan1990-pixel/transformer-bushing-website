@@ -1,6 +1,6 @@
 export const company = {
-  name: "Shandong Qixing High-voltage Electrical Co., Ltd.",
-  shortName: "Qixing High Voltage",
+  name: "China Bushing Electric Co., Ltd.",
+  shortName: "China Bushing Electric",
   tagline: "Dry-type Bushing Specialist",
   contact: {
     person: "Mark Yan",
@@ -26,35 +26,35 @@ export const navItems = [
 export const productCategories = [
   {
     title: "FRP Capacitive Transformer Bushing",
-    code: "QXFBRGW(D)-(L)",
+    code: "CBFBRGW(D)-(L)",
     range: "12kV - 550kV",
     description:
       "Capacitive transformer bushings with FRP insulation systems for oil-air and transformer applications.",
   },
   {
     title: "Oil-SF6 Transformer Bushing",
-    code: "QXFBRGW(L)",
+    code: "CBFBRGW(L)",
     range: "72.5kV - 550kV",
     description:
       "Transition bushings engineered for transformer-to-GIS connections and compact substation layouts.",
   },
   {
     title: "Oil-Oil Transformer Bushing",
-    code: "QXFGRBO(L)",
+    code: "CBFGRBO(L)",
     range: "72.5kV - 550kV",
     description:
       "Oil-immersed capacitive bushings for high-voltage transformer equipment and replacement projects.",
   },
   {
     title: "FRP Capacitive GIS Bushing",
-    code: "QXFGRGW",
+    code: "CBFGRGW",
     range: "72.5kV - 550kV",
     description:
       "GIS interface bushings for SF6 equipment, substations and high-voltage switching systems.",
   },
   {
     title: "FRP Capacitive Wall Bushing",
-    code: "QXFCGRGW(L)",
+    code: "CBFCGRGW(L)",
     range: "12kV - 363kV",
     description:
       "Wall bushings for power stations, switchyards and indoor-to-outdoor high-voltage transitions.",

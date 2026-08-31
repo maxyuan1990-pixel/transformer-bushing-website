@@ -20,9 +20,9 @@ function buildHtml(body: Record<string, string>) {
 
   return `<!DOCTYPE html>
 <html><body style="font-family:Arial,sans-serif;padding:20px">
-<h2 style="color:#f90">New Inquiry from Qixing Website</h2>
+<h2 style="color:#f90">New Inquiry from China Bushing Electric Website</h2>
 <table style="border-collapse:collapse">${fields}</table>
-<p style="color:#999;font-size:12px;margin-top:24px">Sent via qixinghv.com contact form</p>
+<p style="color:#999;font-size:12px;margin-top:24px">Sent via the website contact form</p>
 </body></html>`;
 }
 
@@ -35,7 +35,7 @@ export async function POST({ request }: { request: Request }) {
     const emailLabel = body.email || body["Your Email"] || "(no email)";
 
     await transporter.sendMail({
-      from: `"Qixing Website" <${from}>`,
+      from: `"China Bushing Electric Website" <${from}>`,
       to,
       replyTo: body.email || undefined,
       subject: `New Inquiry — ${emailLabel}`,
