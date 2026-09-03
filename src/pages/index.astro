@@ -91,28 +91,7 @@ const clientLogoRows = [
     "Yunnan-Transformer-Logo.jpg",
   ],
 ];
-const factoryStats = [
-  {
-    value: "9,950 m²",
-    label: "Manufacturing Facility",
-    desc: "Covered production area with casting, winding, assembly and testing workshops",
-  },
-  {
-    value: "100+",
-    label: "Skilled Workforce",
-    desc: "Engineers and technicians with an average of 7+ years in HV bushing manufacturing",
-  },
-  {
-    value: "RMB 300M",
-    label: "Annual Capacity",
-    desc: "Production capacity covering 12kV–550kV RIP/RIF bushing full voltage series",
-  },
-  {
-    value: "4,917+",
-    label: "Railway Bushings Deployed",
-    desc: "Dry-type bushings in active service across China's railway electrification network",
-  },
-];
+
 ---
 
 <BaseLayout
@@ -214,26 +193,6 @@ const factoryStats = [
       </div>
     </section>
 
-    <section class="section factory-overview">
-      <div class="factory-images">
-        <img src="/assets/factory/factory-550kv-rip-production-building.png" alt="550kV RIP production building and outdoor high-voltage bushing" />
-        <img src="/assets/factory/factory-quality-inspection.png" alt="Factory production quality inspection" />
-        <img src="/assets/factory/factory-ehv-testing-lab.png" alt="EHV testing laboratory control room and test hall" />
-      </div>
-      <div>
-        <h2>Manufacturing capability for large-scale power projects</h2>
-        <div class="factory-stat-list">
-          {factoryStats.map((item) => (
-            <div>
-              <strong>{item.value}</strong>
-              <small>{item.label}</small>
-              <p>{item.desc}</p>
-            </div>
-          ))}
-        </div>
-        <a class="button primary orange" href="/about/">Explore Our Factory →</a>
-      </div>
-    </section>
 
     <section class="final-inquiry" id="inquiry">
       <div class="section-heading center">
