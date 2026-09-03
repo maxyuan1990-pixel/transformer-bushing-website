@@ -610,9 +610,7 @@ main > .page-hero + .trust-row + .section {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  background:
-    linear-gradient(90deg, rgba(17, 26, 36, 0.96), rgba(17, 26, 36, 0.78)),
-    url("/assets/hv-bushing-transformer-yard.jpg") center / cover;
+  background: linear-gradient(90deg, #111a24, #1a2637);
   color: var(--white);
 }
 
